@@ -15,10 +15,9 @@ const VideoBackground = () => {
   }, [currentVideoIndex, totalVideos, videos]);
 
   return (
-    <div className="video-background">
-      <video autoPlay loop muted playsInline>
+    <div> // className="video-background">
+      <video autoPlay loop muted > // playsInline
         <source src={videos[currentVideoIndex]} type="video/mp4" />
-        {/* Add additional source elements for different video formats */}
         Your browser does not support the video tag.
       </video>
     </div>
