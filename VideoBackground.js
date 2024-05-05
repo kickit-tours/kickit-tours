@@ -3,7 +3,7 @@ import './VideoBackground.css'; // Import your CSS file for styling
 
 const VideoBackground = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
-  const videos = ["Kickit002-P1.mp4", "Kickit002-P2.mp4"]; // Replace with your video file paths
+  const videos = ["Kickit002-P1.mp4", "Kickit002-P2.mp4"];
   const totalVideos = videos.length;
 
   useEffect(() => {
