@@ -10,23 +10,23 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 70px;
+  height: 10%;
   border: 2px solid #73AD21;
 }
 
 .img {
-  position: absolute;
+  position: relative;
   top: 0;
-  left: 0;
-  width: 120px;
-  height: 50px;
-  object-fit: cover;
+  left: 20%;
+  width: 80px;
+  height: 40px;
+  object-fit: scale-down;
   transition: opacity 1s ease; /* Crossfade transition */
 }
 
 #video-container {
   position: absolute;
-  top: 80px;
+  top: 100px;
   left: 0;
   width: 100%;
   height: 35%;
