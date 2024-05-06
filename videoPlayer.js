@@ -62,7 +62,7 @@ const videoPlayer = (videoElementId, videoSources) => {
       }
     };
   
-    // Play the first video
+    // Play the video
     playNextVideo();
   
     // Listen for the 'ended' event to play the next video
