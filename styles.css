@@ -21,11 +21,12 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 10px 100px;
 }
 
 .logo img {
   max-height: 100px;
+  padding: 100px;
 }
 
 .nav {
@@ -78,6 +79,7 @@ body {
       top: 10px;
       right: 20px;
       cursor: pointer;
+      z-index: 1;
   }
 
   .menu-icon .bar {
