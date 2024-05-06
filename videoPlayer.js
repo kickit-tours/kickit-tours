@@ -44,11 +44,15 @@ const videoPlayer = (videoElementId, videoSources) => {
       nextVideo.style.opacity = 0;
   
       setTimeout(() => {
-        video.style.opacity = 0;
         nextVideo.style.opacity = 1;
+      }, 50); // Start showing next video halfway through the transition
+  
+      setTimeout(() => {
         // Swap videos
         [video.src, nextVideo.src] = [nextVideo.src, video.src];
-        [video, nextVideo] = [nextVideo, video];
+        [video.style.opacity, nextVideo.style.opacity] = [nextVideo.style.opacity, 0];
+        // Reset next video opacity for the next transition
+        nextVideo.style.opacity = 0;
       }, 100); // Crossfade duration
     };
   
