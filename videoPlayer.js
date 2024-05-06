@@ -11,6 +11,9 @@ const videoPlayer = (videoElementId, videoSources) => {
     nextVideo.src = videoSources[currentSourceIndex + 1]; // Preload the next video
     nextVideo.muted = true; // Mute the next video
   
+    // Hide video controls
+    video.controls = false;
+  
     const playNextVideo = () => {
       if (currentSourceIndex >= videoSources.length) {
         currentSourceIndex = 0; // Loop back to the first video
@@ -35,15 +38,18 @@ const videoPlayer = (videoElementId, videoSources) => {
       currentSourceIndex++;
   
       // Crossfade transition
-      video.style.transition = 'opacity 1s ease-out';
-      video.style.opacity = 0;
-      nextVideo.style.transition = 'opacity 1s ease-out';
-      nextVideo.style.opacity = 1;
+      video.style.transition = 'opacity 0.1s ease-out';
+      video.style.opacity = 1;
+      nextVideo.style.transition = 'opacity 0.1s ease-out';
+      nextVideo.style.opacity = 0;
   
       setTimeout(() => {
-        video.style.opacity = 1;
-        nextVideo.style.opacity = 0;
-      }, 250); // Crossfade duration
+        video.style.opacity = 0;
+        nextVideo.style.opacity = 1;
+        // Swap videos
+        [video.src, nextVideo.src] = [nextVideo.src, video.src];
+        [video, nextVideo] = [nextVideo, video];
+      }, 100); // Crossfade duration
     };
   
     // Play the first video
