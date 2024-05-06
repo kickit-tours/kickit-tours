@@ -16,7 +16,7 @@ const videoPlayer = (videoElementId, videoSources) => {
       video.src = videoSources[currentSourceIndex];
       video.muted = true; // Mute the video
       video.play().catch(error => {
-        console.error('Failed to play video:', error);
+        console.error('Failed to play video(!):', error);
       });
       
       currentSourceIndex++;
