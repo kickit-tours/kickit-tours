@@ -15,22 +15,19 @@
 
   <video id="myVideo" controls></video>
 
-  <script type="module">
-    import videoPlayer from './videoPlayer.js';
-
-    const videoElementId = 'myVideo';
-    const videoSource = './video1.mp4';
-
-    videoPlayer(videoElementId, videoSource);
-  </script>
-
-  //<div id="root"></div>
-  //<script type="module" src="VideoBackground.js"></script>
-  //<script type="text/babel">
-  //ReactDOM.render(<VideoBackground />, document.getElementById('root'));
-  //ReactDOM.createRoot(document.getElementById("root")).render(<VideoBackground />);
+  //<script type="module">
+  //  import videoPlayer from './videoPlayer.js';
+  //  const videoElementId = 'myVideo';
+  //  const videoSource = './video1.mp4';
+  //  videoPlayer(videoElementId, videoSource);
   //</script>
 
+  <div id="root"></div>
+  <script type="module" src="VideoBackground.js"></script>
+  <script type="text/babel">
+  //ReactDOM.render(<VideoBackground />, document.getElementById('root'));
+    ReactDOM.createRoot(document.getElementById("root")).render(<VideoBackground />);
+  </script>
 
 </body>
 </html>

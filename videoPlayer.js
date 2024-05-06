@@ -1,4 +1,5 @@
-// videoPlayer.js
+import './VideoBackground.css'; // Import your CSS file for styling
+
 const videoPlayer = (videoElementId, videoSource) => {
     const video = document.getElementById(videoElementId);
     if (!video) {
