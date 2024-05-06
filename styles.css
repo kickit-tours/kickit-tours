@@ -26,7 +26,7 @@ body {
 
 .logo img {
   max-height: 100px;
-  padding: 100px;
+  padding: 10 px 100px;
 }
 
 .nav {
@@ -63,33 +63,6 @@ body {
   padding: 20px;
 }
 
-/* Hamburger menu for mobile */
-@media (max-width: 768px) {
-  .nav {
-      display: none;
-  }
-
-  .header {
-      padding: 10px 20px;
-  }
-
-  .menu-icon {
-      display: block;
-      position: absolute;
-      top: 10px;
-      right: 20px;
-      cursor: pointer;
-      z-index: 1;
-  }
-
-  .menu-icon .bar {
-      width: 25px;
-      height: 3px;
-      background-color: #000;
-      margin: 5px 0;
-  }
-}
-
 #video-container {
   position: absolute;
   top: 100px;
@@ -112,4 +85,37 @@ body {
 #video2 {
   opacity: 0; /* Initially hide the second video */
   transition: opacity 1s ease; /* Crossfade transition */
+}
+
+/* Hamburger menu for mobile */
+@media (max-width: 768px) {
+  .nav {
+      display: none;
+  }
+
+  .header {
+      padding: 20px 40px;
+  }
+
+  .menu-icon {
+      display: block;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      cursor: pointer;
+      z-index: 1;
+  }
+
+  .menu-icon .bar {
+      width: 25px;
+      height: 30px;
+      background-color: #f00;
+      margin: 5px 0;
+  }
+
+  #video-container {
+    top: 100px;
+    height: 60%;
+  }
+  
 }
