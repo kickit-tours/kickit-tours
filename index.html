@@ -3,21 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KiCKiT Tours [017]</title>
+  <title>KiCKiT Tours [018]</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div id="video-container">
-    <video id="background-video" loop muted playsinline autoplay></video>
+    <video id="background-video" muted playsinline autoplay></video>
   </div>
 
   <script src="videoPlayer.js"></script>
   <script>
     const videoSources = ['./video1.mp4', './video2.mp4']; 
-
-    document.querySelector('background-video').addEventListener('ended', function (event) {
-      console.count('loop restart');
-    });
 
   </script>
 </body>
