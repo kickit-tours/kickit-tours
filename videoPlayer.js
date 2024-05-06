@@ -1,16 +1,30 @@
-import './VideoBackground.css'; // Import your CSS file for styling
 
-const videoPlayer = (videoElementId, videoSource) => {
+const videoPlayer = (videoElementId, videoSources) => {
     const video = document.getElementById(videoElementId);
     if (!video) {
       console.error(`Video element with id ${videoElementId} not found.`);
       return;
     }
   
-    video.loop = true;
-    video.src = videoSource;
-    video.play();
+    let currentSourceIndex = 0;
+  
+    const playNextVideo = () => {
+      if (currentSourceIndex >= videoSources.length) {
+        currentSourceIndex = 0; // Loop back to the first video
+      }
+      
+      video.src = videoSources[currentSourceIndex];
+      video.play();
+      
+      currentSourceIndex++;
+    };
+  
+    // Play the first video
+    playNextVideo();
+  
+    // Listen for the 'ended' event to play the next video
+    video.addEventListener('ended', playNextVideo);
   };
   
-  export default videoPlayer;
+  window.videoPlayer = videoPlayer;
   
