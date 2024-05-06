@@ -20,6 +20,7 @@ function videoPlayer(videoSources) {
         currentVideoIndex = (currentVideoIndex + 1) % videos.length;
         const nextVideo = videos[currentVideoIndex];
         nextVideo.src = videoSources[currentVideoIndex];
+        nextVideo.style.opacity = 1;
         nextVideo.play().catch(error => {
           console.error('Failed to play video:', error);
         });
@@ -31,9 +32,6 @@ function videoPlayer(videoSources) {
       video.muted = true;
       video.controls = false;
     });
-
-    // Adjust the opacity of the second video to make it visible
-    videos[1].style.opacity = 1;
   }
   
   window.videoPlayer = videoPlayer;
