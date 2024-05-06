@@ -5,9 +5,27 @@ body {
   overflow: hidden;
 }
 
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+}
+
+.img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120px;
+  height: 50px;
+  object-fit: cover;
+  transition: opacity 1s ease; /* Crossfade transition */
+}
+
 #video-container {
   position: fixed;
-  top: 70;
+  top: 0;
   left: 0;
   width: 100%;
   height: 30%;
