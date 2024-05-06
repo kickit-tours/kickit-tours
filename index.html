@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KiCKiT Tours [016]</title>
+  <title>KiCKiT Tours [017]</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -15,7 +15,7 @@
   <script>
     const videoSources = ['./video1.mp4', './video2.mp4']; 
 
-    document.querySelector('background-video').addEventListener('ended', function () {
+    document.querySelector('background-video').addEventListener('ended', function (event) {
       console.count('loop restart');
     });
 
