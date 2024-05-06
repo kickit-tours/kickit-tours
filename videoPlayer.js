@@ -16,6 +16,7 @@ function videoPlayer(videoSources) {
   
     // Listen for the 'ended' event to switch to the next video
     video.addEventListener('ended', () => {
+      console.log('Video ended'); // Check if this message is logged
       currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
       video.src = videoSources[currentVideoIndex];
       video.play().catch(error => {
