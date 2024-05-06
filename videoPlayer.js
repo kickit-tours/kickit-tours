@@ -17,6 +17,9 @@ function videoPlayer(videoSources) {
   
       // Listen for the 'ended' event to switch to the next video
       video.addEventListener('ended', () => {
+        const currentVideo = videos[currentVideoIndex];
+        currentVideo.style.opacity = 0;
+
         currentVideoIndex = (currentVideoIndex + 1) % videos.length;
         const nextVideo = videos[currentVideoIndex];
         nextVideo.src = videoSources[currentVideoIndex];
