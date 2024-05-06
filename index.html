@@ -3,26 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="VideoBackground.css">
-  <title>KiCKiT Tours</title>
+  <title>KiCKiT Tours [001]</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <img id="logo" src="Kickit-logo.png" alt="Kickit Logo"> 
-  <h1>KiCKiT r032</h1>
-
-  <div class="video-background">
-    <video id="myVideo" controls></video>
+  <div id="video-container">
+    <video id="video1" loop muted playsinline autoplay></video>
+    <video id="video2" loop muted playsinline autoplay></video>
   </div>
 
   <script src="videoPlayer.js"></script>
-
   <script>
-    const videoElementId = 'myVideo';
-    const videoSources = ['./video1.mp4', './video2.mp4'];
+    const videoSources = ['./video1.mp4', './video2.mp4']; 
 
-    videoPlayer(videoElementId, videoSources);
+    videoPlayer(videoSources);
   </script>
-
-
 </body>
 </html>
