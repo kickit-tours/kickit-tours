@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('hello');
 
     // Listen for clicks on the video container
-    videoContainer.addEventListener('ended', function(event) {
+    videoContainer.addEventListener('playing', function(event) {
         console.log('event ended ', event.target.src);
         // Check if the ended event originated from a video element
       if (event.target.tagName.toLowerCase() === 'video') {
