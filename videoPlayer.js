@@ -43,26 +43,9 @@ const videoPlayer = (videoElementId, videoSources) => {
       nextVideo.load();
       
       currentSourceIndex++;
-  
-      // Crossfade transition only after the first play
-      if (!isFirstPlay) {
-        video.style.transition = 'opacity 0.1s ease-out';
-        video.style.opacity = 1;
-        nextVideo.style.transition = 'opacity 0.1s ease-out';
-        nextVideo.style.opacity = 0;
-  
-        setTimeout(() => {
-          video.style.opacity = 0;
-        }, 50); // Start hiding current video halfway through the transition
-  
-        setTimeout(() => {
-          // Swap opacity between current and next videos
-          [video.style.opacity, nextVideo.style.opacity] = [nextVideo.style.opacity, video.style.opacity];
-        }, 100); // Crossfade duration
-      }
     };
   
-    // Play the video
+    // Play the next video
     playNextVideo();
   
     // Listen for the 'ended' event to play the next video
