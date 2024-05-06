@@ -9,7 +9,8 @@ function videoPlayer(videoSources) {
   
     // Play the video when loaded to avoid the first visible hiccup
     video.oncanplay = () => {
-      video.play().catch(error => {
+        console.log('Playing: ', video.src);
+        video.play().catch(error => {
         console.error('Failed to play video:', error);
       });
     };
@@ -23,6 +24,9 @@ function videoPlayer(videoSources) {
         console.error('Failed to play video:', error);
       });
     });
+  
+    // Log whether the 'ended' event listener is added successfully
+    console.log('Event listener added successfully:', video.getAttribute('onended') !== null);
   
     // Mute the video and hide controls
     video.muted = true;
