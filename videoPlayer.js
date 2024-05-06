@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const videoContainer = document.getElementById('video-container');
     let currentVideoIndex = 0;
   
+    console.log('hello 1');
     // Listen for clicks on the video container
     videoContainer.addEventListener('ended', function(event) {
       // Check if the ended event originated from a video element
@@ -15,15 +16,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       }
     });
-  
+
+    console.log('hello 2');
+
     // Preload the first video
     const video = document.getElementById('background-video');
     video.src = videoSources[currentVideoIndex];
     video.load();
-  
+
+    console.log('hello 3');
+
     // Play the video when loaded to avoid the first visible hiccup
     video.oncanplay = () => {
-      video.play().catch(error => {
+        console.log('hello 4');
+        video.play().catch(error => {
         console.error('Failed to play video:', error);
       });
     };
