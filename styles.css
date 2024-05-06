@@ -14,15 +14,16 @@ body {
   border: 2px solid #73AD21;
 }
 
-img {
+.img {
   border: 1px solid #999;
+  left: 10%;
   width: 80px;
   object-fit: scale-down;
 }
 
 #video-container {
-  position: absolute;
-  top: 100px;
+  position: relative;
+  top: 0;
   left: 0;
   width: 100%;
   height: 35%;
@@ -31,7 +32,7 @@ img {
 
 .video {
   position: absolute;
-  top: 0;
+  top: 6%;
   left: 0;
   width: 100%;
   height: 100%;
