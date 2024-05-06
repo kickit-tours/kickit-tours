@@ -1,67 +1,91 @@
 /* styles.css */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  overflow: hidden;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+
 }
 
-.header {
-  background-color: #fff;
-  color: #000;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  transition: top 0.3s;
+html {
+    font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
 }
 
-.container {
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header{
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 100px;
+  padding: 1rem 1.5rem;
 }
+
 
 .logo img {
   max-height: 100px;
   padding: 10 px 100px;
 }
 
-.nav {
+..hamburger {
+  display: none;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: #101010;
+}
+
+.nav-menu {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.menu {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
+.nav-item {
+  margin-left: 5rem;
 }
 
-.menu li {
-  margin-right: 20px;
+.nav-link{
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #475569;
 }
 
-.menu li:last-child {
-  margin-right: 0;
+.nav-link:hover{
+  color: #482ff7;
 }
 
-.menu a {
-  color: #000;
-  text-decoration: none;
-  transition: color 0.3s;
+.nav-logo {
+  font-size: 2.1rem;
+  font-weight: 500;
+  color: #482ff7;
 }
 
-.menu a:hover {
-  color: #ffcc00;
-}
-
+/*
 .content {
-  margin-top: 100px; /* Adjust according to header height */
+  margin-top: 100px;
   padding: 20px;
 }
+*/
 
 #video-container {
   position: absolute;
@@ -87,30 +111,32 @@ body {
   transition: opacity 1s ease; /* Crossfade transition */
 }
 
-/* Hamburger menu for mobile */
-@media (max-width: 768px) {
-  .nav {
-      display: none;
+@media only screen and (max-width: 768px) {
+  .nav-menu {
+      position: fixed;
+      left: -100%;
+      top: 5rem;
+      flex-direction: column;
+      background-color: #fff;
+      width: 100%;
+      border-radius: 10px;
+      text-align: center;
+      transition: 0.3s;
+      box-shadow:
+          0 10px 27px rgba(0, 0, 0, 0.05);
   }
 
-  .header {
-      padding: 20px 40px;
+  .nav-menu.active {
+      left: 0;
   }
 
-  .menu-icon {
+  .nav-item {
+      margin: 2.5rem 0;
+  }
+
+  .hamburger {
       display: block;
-      position: absolute;
-      top: 10px;
-      right: 20px;
       cursor: pointer;
-      z-index: 1;
-  }
-
-  .menu-icon .bar {
-      width: 25px;
-      height: 30px;
-      background-color: #f00;
-      margin: 5px 0;
   }
 
   #video-container {
