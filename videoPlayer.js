@@ -18,8 +18,9 @@ function videoPlayer(videoSources) {
       // Listen for the 'ended' event to switch to the next video
       video.addEventListener('ended', () => {
         currentVideoIndex = (currentVideoIndex + 1) % videos.length;
-        video.src = videoSources[currentVideoIndex];
-        video.play().catch(error => {
+        const nextVideo = videos[currentVideoIndex];
+        nextVideo.src = videoSources[currentVideoIndex];
+        nextVideo.play().catch(error => {
           console.error('Failed to play video:', error);
         });
       });
