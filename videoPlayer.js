@@ -1,4 +1,4 @@
-
+// videoPlayer.js
 const videoPlayer = (videoElementId, videoSources) => {
     const video = document.getElementById(videoElementId);
     if (!video) {
@@ -7,6 +7,8 @@ const videoPlayer = (videoElementId, videoSources) => {
     }
   
     let currentSourceIndex = 0;
+    let nextVideo = document.createElement('video');
+    nextVideo.src = videoSources[currentSourceIndex + 1]; // Preload the next video
   
     const playNextVideo = () => {
       if (currentSourceIndex >= videoSources.length) {
@@ -16,8 +18,12 @@ const videoPlayer = (videoElementId, videoSources) => {
       video.src = videoSources[currentSourceIndex];
       video.muted = true; // Mute the video
       video.play().catch(error => {
-        console.error('Failed to play video(!):', error);
+        console.error('Failed to play video:', error);
       });
+  
+      // Preload the next video
+      nextVideo.src = videoSources[(currentSourceIndex + 1) % videoSources.length];
+      nextVideo.load();
       
       currentSourceIndex++;
     };
