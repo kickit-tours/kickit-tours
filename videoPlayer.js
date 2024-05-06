@@ -15,15 +15,18 @@ function videoPlayer(videoSources) {
         });
       };
   
-      // Listen for the 'ended' event to switch to the next video
-      video.addEventListener('ended', () => {
-        currentVideoIndex = (currentVideoIndex + 1) % videos.length;
-        const nextVideo = videos[currentVideoIndex];
-        nextVideo.src = videoSources[currentVideoIndex];
-        nextVideo.play().catch(error => {
-          console.error('Failed to play video:', error);
+      // Listen for the 'ended' event of the first video to start the second video
+      if (index === 0) {
+        video.addEventListener('ended', () => {
+          const nextVideoIndex = (currentVideoIndex + 1) % videos.length;
+          const nextVideo = videos[nextVideoIndex];
+          nextVideo.src = videoSources[nextVideoIndex];
+          nextVideo.play().catch(error => {
+            console.error('Failed to play video:', error);
+          });
+          currentVideoIndex = nextVideoIndex;
         });
-      });
+      }
   
       // Mute the video and hide controls
       video.muted = true;
