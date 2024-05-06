@@ -31,6 +31,9 @@ function videoPlayer(videoSources) {
       video.muted = true;
       video.controls = false;
     });
+
+    // Adjust the opacity of the second video to make it visible
+    videos[1].style.opacity = 1;
   }
   
   window.videoPlayer = videoPlayer;
