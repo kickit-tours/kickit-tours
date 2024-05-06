@@ -31,13 +31,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 1.5rem;
-}
-
-
-.logo img {
-  max-height: 100px;
-  padding: 10 px 100px;
+  padding: 2rem 4.5rem;
 }
 
 .hamburger {
@@ -75,9 +69,7 @@ a {
 }
 
 .nav-logo {
-  font-size: 2.1rem;
-  font-weight: 500;
-  color: #482ff7;
+  max-height: 100px;
 }
 
 /*
