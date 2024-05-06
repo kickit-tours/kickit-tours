@@ -14,6 +14,8 @@ const videoPlayer = (videoElementId, videoSources) => {
     // Hide video controls
     video.controls = false;
   
+    let isFirstPlay = true;
+  
     const playNextVideo = () => {
       if (currentSourceIndex >= videoSources.length) {
         currentSourceIndex = 0; // Loop back to the first video
@@ -25,9 +27,14 @@ const videoPlayer = (videoElementId, videoSources) => {
   
       // Wait for the 'loadedmetadata' event before playing the video
       video.addEventListener('loadedmetadata', () => {
-        video.play().catch(error => {
-          console.error('Failed to play video:', error);
-        });
+        // Play the video only if it's not the first time
+        if (!isFirstPlay) {
+          video.play().catch(error => {
+            console.error('Failed to play video:', error);
+          });
+        } else {
+          isFirstPlay = false;
+        }
       }, { once: true });
   
       // Preload the next video
@@ -37,20 +44,22 @@ const videoPlayer = (videoElementId, videoSources) => {
       
       currentSourceIndex++;
   
-      // Crossfade transition
-      video.style.transition = 'opacity 2s ease-out';
-      video.style.opacity = 1;
-      nextVideo.style.transition = 'opacity 2s ease-out';
-      nextVideo.style.opacity = 0;
+      // Crossfade transition only after the first play
+      if (!isFirstPlay) {
+        video.style.transition = 'opacity 0.1s ease-out';
+        video.style.opacity = 1;
+        nextVideo.style.transition = 'opacity 0.1s ease-out';
+        nextVideo.style.opacity = 0;
   
-      setTimeout(() => {
-        video.style.opacity = 0;
-      }, 1000); // Start hiding current video halfway through the transition
+        setTimeout(() => {
+          video.style.opacity = 0;
+        }, 50); // Start hiding current video halfway through the transition
   
-      setTimeout(() => {
-        // Swap opacity between current and next videos
-        [video.style.opacity, nextVideo.style.opacity] = [nextVideo.style.opacity, video.style.opacity];
-      }, 2000); // Crossfade duration
+        setTimeout(() => {
+          // Swap opacity between current and next videos
+          [video.style.opacity, nextVideo.style.opacity] = [nextVideo.style.opacity, video.style.opacity];
+        }, 100); // Crossfade duration
+      }
     };
   
     // Play the first video
