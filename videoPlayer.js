@@ -38,22 +38,19 @@ const videoPlayer = (videoElementId, videoSources) => {
       currentSourceIndex++;
   
       // Crossfade transition
-      video.style.transition = 'opacity 0.1s ease-out';
+      video.style.transition = 'opacity 2s ease-out';
       video.style.opacity = 1;
-      nextVideo.style.transition = 'opacity 0.1s ease-out';
+      nextVideo.style.transition = 'opacity 2s ease-out';
       nextVideo.style.opacity = 0;
   
       setTimeout(() => {
-        nextVideo.style.opacity = 1;
-      }, 50); // Start showing next video halfway through the transition
+        video.style.opacity = 0;
+      }, 1000); // Start hiding current video halfway through the transition
   
       setTimeout(() => {
-        // Swap videos
-        [video.src, nextVideo.src] = [nextVideo.src, video.src];
-        [video.style.opacity, nextVideo.style.opacity] = [nextVideo.style.opacity, 0];
-        // Reset next video opacity for the next transition
-        nextVideo.style.opacity = 0;
-      }, 100); // Crossfade duration
+        // Swap opacity between current and next videos
+        [video.style.opacity, nextVideo.style.opacity] = [nextVideo.style.opacity, video.style.opacity];
+      }, 2000); // Crossfade duration
     };
   
     // Play the first video
