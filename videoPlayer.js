@@ -36,13 +36,13 @@ const videoPlayer = (videoElementId, videoSources) => {
   
       // Crossfade transition
       video.style.transition = 'opacity 1s ease-out';
-      video.style.opacity = 1;
+      video.style.opacity = 0;
       nextVideo.style.transition = 'opacity 1s ease-out';
-      nextVideo.style.opacity = 0;
+      nextVideo.style.opacity = 1;
   
       setTimeout(() => {
-        video.style.opacity = 0;
-        nextVideo.style.opacity = 1;
+        video.style.opacity = 1;
+        nextVideo.style.opacity = 0;
       }, 250); // Crossfade duration
     };
   
