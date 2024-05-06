@@ -1,7 +1,7 @@
 import React from 'react';
 import './VideoBackground.css'; // Import your CSS file for styling
 
-const VideoBackground = () => {
+const videoBackground = () => {
   return (
     <div className="video-background">
       <video autoPlay loop muted playsInline>
@@ -12,4 +12,4 @@ const VideoBackground = () => {
   );
 }
 
-export default VideoBackground;
+export default videoBackground;
