@@ -66,6 +66,12 @@ function videoPlayer(videoSources) {
   
     // Start crossfade immediately after the first video starts playing
     videos[0].addEventListener('playing', startCrossfade);
+
+    // Reset currentVideoIndex when isFirstPlay is true
+    if (isFirstPlay) {
+        currentVideoIndex = 0;
+    }
+    
   }
   
   window.videoPlayer = videoPlayer;
