@@ -11,14 +11,15 @@ function videoPlayer(videoSources) {
         video.load();
     }  
 
-      // Play the video when loaded to avoid the first visible hiccup
-      if (video.id === 'video1') {
+    // Play the video when loaded to avoid the first visible hiccup
+    if (video.id === 'video1') {
         video.play().catch(error => {
             console.error('Failed to play video:', error);
         });
+    }
     
-      // Listen for the 'timeupdate' event to check if the crossfade should start
-      video.addEventListener('timeupdate', () => {
+    // Listen for the 'timeupdate' event to check if the crossfade should start
+    video.addEventListener('timeupdate', () => {
         const duration = video.duration;
         const currentTime = video.currentTime;
         const remainingTime = duration - currentTime;
@@ -67,13 +68,13 @@ function videoPlayer(videoSources) {
     
     // Preload the second video after the first video has started playing
     videos[0].addEventListener('playing', () => {
-        if (videos.length > 1) {
+      if (videos.length > 1) {
         const secondVideo = videos[1];
         secondVideo.src = videoSources[1];
         secondVideo.load();
-        }
+      }
     });
-    
+
   }
   
   window.videoPlayer = videoPlayer;
