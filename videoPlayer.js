@@ -12,7 +12,8 @@ function videoPlayer(videoSources, isMobile) {
       video.src = src;
       container.appendChild(video);
       console.log("created ",src);
-  
+      console.log(" #- ",container.childNodes.length)
+
       return video;
     }
   
