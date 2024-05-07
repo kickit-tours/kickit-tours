@@ -10,6 +10,7 @@ function videoPlayer(videoSources, isMobile) {
       video.playsinline = true;
       video.autoplay = true;
       video.src = src;
+      console.log("create ",src);
       container.appendChild(video);
   
       return video;
@@ -21,11 +22,11 @@ function videoPlayer(videoSources, isMobile) {
     video.preload = isMobile ? 'none' : 'auto';
   
     // Play the video when enough media has been loaded to play through without interruption
-    video.addEventListener('canplaythrough', () => {
+ //   video.addEventListener('canplaythrough', () => {
       video.play().catch(error => {
         console.error('Failed to play video:', error);
       });
-    });
+//    });
   
     // Listen for the 'timeupdate' event to check if the crossfade should start
     video.addEventListener('timeupdate', () => {
@@ -36,6 +37,7 @@ function videoPlayer(videoSources, isMobile) {
       // Start crossfade just before the end of the current video
       if (remainingTime <= 1) { // Adjust this threshold as needed
         startCrossfade();
+        video.removeEventListener('timeupdate', timeUpdateHandler); // Remove the event listener
       }
     });
   
@@ -61,6 +63,7 @@ function videoPlayer(videoSources, isMobile) {
       setTimeout(() => {
         video.pause();
         video.currentTime = 0;
+        console.log("remove ",container.firstChild.getAttribute('src'));
         container.removeChild(container.firstChild); // Remove the previous video element
         currentVideoIndex = nextVideoIndex;
       }, 1000); // Adjust this value to match the transition duration
