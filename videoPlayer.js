@@ -52,12 +52,14 @@ function videoPlayer(videoSources, isMobile) {
       // Start crossfade just before the end of the current video
       if (remainingTime <= 1) { // Adjust this threshold as needed
       
+        var elementNodeCount = 0;
         for (var i = 0; i < container.childNodes.length; i++) {
             var childNode = container.childNodes[i];
             
             // Check if the child node is an element node
             if (childNode.nodeType === 1) {
                 // Check if the element has a src attribute
+                elementNodeCount++;
                 if (childNode.hasAttribute('src')) {
                     // Get the value of the src attribute
                     var srcValue = childNode.getAttribute('src');
@@ -66,7 +68,7 @@ function videoPlayer(videoSources, isMobile) {
             }
         }
             
-        if(container.childNodes.length <= 3) {
+        if(elementNodeCounth == 1) {
             startCrossfade();
         }
       }
@@ -95,8 +97,22 @@ function videoPlayer(videoSources, isMobile) {
       setTimeout(() => {
         video.pause();
         video.currentTime = 0;
-        console.log("remove!");
-        container.removeChild(container.firstChild); // Remove the previous video element
+        for (var i = 0; i < container.childNodes.length; i++) {
+            var childNode = container.childNodes[i];
+            
+            // Check if the child node is an element node
+            if (childNode.nodeType === 1) {
+                // Check if the element has a src attribute
+                if (childNode.hasAttribute('src')) {
+                    // Get the value of the src attribute
+                    var srcValue = childNode.getAttribute('src');
+                    console.log(" +++ Source attribute value:", srcValue);
+                }
+                console.log("remove!");
+                container.removeChild(container.childNode);
+                break;
+            }
+        }
         currentVideoIndex = nextVideoIndex;
       }, 1000); // Adjust this value to match the transition duration
     }
