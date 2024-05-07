@@ -1,20 +1,31 @@
 // videoPlayer.js
+function getPercentProg() {
+    var endBuf = video.buffered.end(0);
+    var soFar = parseInt(((endBuf / video.duration) * 100));
+    document.getElementById("loadStatus").innerHTML =  'loading ' + soFar + '%';
+}
+
 function videoPlayer(videoSources) {
     const videos = document.querySelectorAll('.video');
     let currentVideoIndex = 0;
   
     videos.forEach((video, index) => {
-        video.src = videoSources[index] + "#t=0.1";
+        video.src = videoSources[index] + isMobile ? '#t=0.1' : '';
 
         // Set preload attribute based on device type
         video.preload = isMobile ? 'metadata' : 'auto';
 
-        // Preload the first video
-        if (index === 0 && !isMobile) {
-        }
-
         // Play the video when loaded to avoid the first visible hiccup
         if (video.id === 'video1') {
+            video.addEventListener('progress', getPercentProg, false);
+            video.addEventListener('canplaythrough', () => {
+                video.play().catch(error => {
+                  console.error('Failed to play video:', error);
+                });
+            });
+          }
+
+
             video.play().catch(error => {
                 console.error('Failed to play video:', error);
             });

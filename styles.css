@@ -134,6 +134,7 @@ a {
   #video-container {
     top: 100px;
     height: 60%;
+    background-color: #000;
   }
   
 }
