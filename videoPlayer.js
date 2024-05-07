@@ -5,12 +5,9 @@ function videoPlayer(videoSources) {
   
     videos.forEach((video, index) => {
         video.src = videoSources[index] + "#t=0.1";
-        video.preload = 'metadata';
-
- //       video.load();
 
         // Set preload attribute based on device type
-//        video.preload = isMobile ? 'auto' : 'auto';
+        video.preload = isMobile ? 'metadata' : 'auto';
 
         // Preload the first video
         if (index === 0 && !isMobile) {
@@ -30,7 +27,7 @@ function videoPlayer(videoSources) {
             const remainingTime = duration - currentTime;
     
             // Start crossfade just before the end of the current video
-            if (remainingTime <= 4) { // Adjust this threshold as needed
+            if (remainingTime <= 1.5) { // Adjust this threshold as needed
             startCrossfade();
             }
          });
@@ -65,7 +62,7 @@ function videoPlayer(videoSources) {
         currentVideo.currentTime = 0;
         currentVideo.classList.remove('active');
         currentVideoIndex = nextVideoIndex;
-      }, 2000); // Adjust this value to match the transition duration
+      }, 1500); // Adjust this value to match the transition duration
     }
   
     // Start crossfade immediately after the first video starts playing
