@@ -10,8 +10,8 @@ function videoPlayer(videoSources, isMobile) {
       video.playsinline = true;
       video.autoplay = true;
       video.src = src;
-      console.log("create ",src);
       container.appendChild(video);
+      console.log("created ",src);
   
       return video;
     }
@@ -35,9 +35,8 @@ function videoPlayer(videoSources, isMobile) {
       const remainingTime = duration - currentTime;
   
       // Start crossfade just before the end of the current video
-      if (remainingTime <= 1) { // Adjust this threshold as needed
+      if (remainingTime <= 1 && container.childNodes.length < 2) { // Adjust this threshold as needed
         startCrossfade();
-        video.removeEventListener('timeupdate', timeUpdateHandler); // Remove the event listener
       }
     });
   
@@ -47,6 +46,7 @@ function videoPlayer(videoSources, isMobile) {
       const nextVideoIndex = (currentVideoIndex + 1) % videoSources.length;
       const nextVideo = createVideoElement(videoSources[nextVideoIndex]);
       nextVideo.preload = isMobile ? 'none' : 'auto';
+      nextVideo.autoplay = false;
   
       // Activate the next video to make it visible with transition
       nextVideo.classList.add('active');
