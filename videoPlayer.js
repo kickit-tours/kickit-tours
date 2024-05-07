@@ -2,6 +2,7 @@
 function videoPlayer(videoSources) {
     const videos = document.querySelectorAll('.video');
     let currentVideoIndex = 0;
+    let isFirstPlay = true;
   
     videos.forEach((video, index) => {
       // Preload the video
@@ -9,11 +10,14 @@ function videoPlayer(videoSources) {
       video.load();
   
       // Play the video when loaded to avoid the first visible hiccup
-      //video.oncanplay = () => {
-      //  video.play().catch(error => {
-      //    console.error('Failed to play video:', error);
-      //  });
-      //};
+      video.addEventListener('canplay', () => {
+        if (isFirstPlay) {
+          video.play().catch(error => {
+            console.error('Failed to play video:', error);
+          });
+          isFirstPlay = false;
+        }
+      });
   
       // Listen for the 'timeupdate' event to check if the crossfade should start
       video.addEventListener('timeupdate', () => {
@@ -21,8 +25,6 @@ function videoPlayer(videoSources) {
         const currentTime = video.currentTime;
         const remainingTime = duration - currentTime;
   
-        console.log("update ",video.src, duration, currentTime);
-
         // Start crossfade just before the end of the current video
         if (remainingTime <= 1) { // Adjust this threshold as needed
           startCrossfade();
@@ -47,6 +49,11 @@ function videoPlayer(videoSources) {
   
       // Deactivate the current video to fade it out with transition
       currentVideo.classList.remove('active');
+  
+      // Play the next video
+      nextVideo.play().catch(error => {
+        console.error('Failed to play video:', error);
+      });
   
       // Switch to the next video after the transition completes
       setTimeout(() => {
