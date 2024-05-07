@@ -1,5 +1,5 @@
 // videoPlayer.js
-function getPercentProg() {
+function getPercentProg(video) {
     var endBuf = video.buffered.end(0);
     var soFar = parseInt(((endBuf / video.duration) * 100));
     document.getElementById("loadStatus").innerHTML =  soFar + '%';
@@ -10,7 +10,7 @@ function videoPlayer(videoSources) {
     let currentVideoIndex = 0;
   
     videos.forEach((video, index) => {
-        video.src = videoSources[index] + isMobile ? '#t=0.1' : '';
+        video.src = videoSources[index];
         video.load();
 
         // Set preload attribute based on device type
@@ -18,12 +18,12 @@ function videoPlayer(videoSources) {
 
         // Play the video when loaded to avoid the first visible hiccup
         if (video.id === 'video1') {
-            video.addEventListener('progress', getPercentProg, false);
- //           video.addEventListener('canplaythrough', () => {
+            video.addEventListener('progress', getPercentProg(video), false);
+            video.addEventListener('canplaythrough', () => {
                 video.play().catch(error => {
                   console.error('Failed to play video:', error);
                 });
- //           });
+            });
         }
         
         // Listen for the 'timeupdate' event to check if the crossfade should start
