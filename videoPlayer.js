@@ -12,6 +12,8 @@ function videoPlayer(videoSources) {
       // Play the video when loaded to avoid the first visible hiccup
       video.addEventListener('canplay', () => {
         if (isFirstPlay) {
+          console.log("First video to play: ",video.src)
+          
           video.play().catch(error => {
             console.error('Failed to play video:', error);
           });
