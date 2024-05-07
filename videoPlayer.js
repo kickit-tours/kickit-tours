@@ -9,11 +9,11 @@ function videoPlayer(videoSources) {
       video.load();
   
       // Play the video when loaded to avoid the first visible hiccup
-      video.oncanplay = () => {
-        video.play().catch(error => {
-          console.error('Failed to play video:', error);
-        });
-      };
+      //video.oncanplay = () => {
+      //  video.play().catch(error => {
+      //    console.error('Failed to play video:', error);
+      //  });
+      //};
   
       // Listen for the 'timeupdate' event to check if the crossfade should start
       video.addEventListener('timeupdate', () => {
