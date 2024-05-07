@@ -8,7 +8,7 @@ function videoPlayer(videoSources) {
     // Preload the first video
     if (index === 0) {
         video.src = videoSources[index];
-        video.load();
+//        video.load();
     }  
 
     // Play the video when loaded to avoid the first visible hiccup
@@ -67,13 +67,13 @@ function videoPlayer(videoSources) {
     videos[0].addEventListener('playing', startCrossfade);
     
     // Preload the second video after the first video has started playing
-    videos[0].addEventListener('playing', () => {
-      if (videos.length > 1) {
-        const secondVideo = videos[1];
-        secondVideo.src = videoSources[1];
-        secondVideo.load();
-      }
-    });
+//    videos[0].addEventListener('playing', () => {
+//      if (videos.length > 1) {
+//        const secondVideo = videos[1];
+//        secondVideo.src = videoSources[1];
+//        secondVideo.load();
+//      }
+//    });
 
   }
   
