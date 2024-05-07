@@ -5,7 +5,7 @@ function videoPlayer(videoSources) {
   
     videos.forEach((video, index) => {
         video.src = videoSources[index];
-        video.load();
+ //       video.load();
 
         // Set preload attribute based on device type
 //        video.preload = isMobile ? 'auto' : 'auto';
