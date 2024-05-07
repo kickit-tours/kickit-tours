@@ -22,15 +22,17 @@ function videoPlayer(videoSources) {
       // Listen for the 'ended' event to switch to the next video
       video.addEventListener('ended', () => {
         const currentVideo = videos[currentVideoIndex];
-        currentVideo.style.opacity = 0;
 
         currentVideoIndex = (currentVideoIndex + 1) % videos.length;
         const nextVideo = videos[currentVideoIndex];
         nextVideo.src = videoSources[currentVideoIndex];
-        nextVideo.style.opacity = 1;
-        nextVideo.play().catch(error => {
-          console.error('Failed to play video:', error);
-        });
+        nextVideo.oncanplay = () => {
+            currentVideo.style.opacity = 0;
+            nextVideo.style.opacity = 1;
+            nextVideo.play().catch(error => {
+                console.error('Failed to play video:', error);
+            });
+        };
       });
     });
   
