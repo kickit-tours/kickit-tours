@@ -1,6 +1,6 @@
 // videoPlayer.js
 function videoPlayer(videoSources, isMobile) {
-    const container = document.getElementById('container'); // Add a container element in your HTML
+    const container = document.getElementById('video-container'); // Add a container element in your HTML
     let currentVideoIndex = 0;
   
     function createVideoElement(src) {
