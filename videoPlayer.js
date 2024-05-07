@@ -12,14 +12,22 @@ function videoPlayer(videoSources, isMobile) {
       video.src = src;
       container.appendChild(video);
       console.log("created ",src);
-      console.log(" #- ",container.childNodes.length)
 
       return video;
     }
 
-    var children = container.childNodes;
-    for(var i = 0; i < children.length; i++) {
-        console.log(" - Node: ", children[i]);
+    for (var i = 0; i < container.childNodes.length; i++) {
+        var childNode = container.childNodes[i];
+        
+        // Check if the child node is an element node
+        if (childNode.nodeType === 1) {
+            // Check if the element has a src attribute
+            if (childNode.hasAttribute('src')) {
+                // Get the value of the src attribute
+                var srcValue = childNode.getAttribute('src');
+                console.log(" - Source attribute value:", srcValue);
+            }
+        }
     }
 
     const video = createVideoElement(videoSources[currentVideoIndex]);
@@ -44,12 +52,20 @@ function videoPlayer(videoSources, isMobile) {
       // Start crossfade just before the end of the current video
       if (remainingTime <= 1) { // Adjust this threshold as needed
       
-        var children = container.childNodes;
-        for(var i = 0; i < children.length; i++) {
-            console.log(" + Node: ", children[i]);
+        for (var i = 0; i < container.childNodes.length; i++) {
+            var childNode = container.childNodes[i];
+            
+            // Check if the child node is an element node
+            if (childNode.nodeType === 1) {
+                // Check if the element has a src attribute
+                if (childNode.hasAttribute('src')) {
+                    // Get the value of the src attribute
+                    var srcValue = childNode.getAttribute('src');
+                    console.log(" + Source attribute value:", srcValue);
+                }
+            }
         }
-
-        
+            
         if(container.childNodes.length <= 3) {
             startCrossfade();
         }
