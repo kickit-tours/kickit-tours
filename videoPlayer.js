@@ -7,11 +7,11 @@ function videoPlayer(videoSources) {
         video.src = videoSources[index];
 
         // Set preload attribute based on device type
-        video.preload = isMobile ? 'none' : 'auto';
+        video.preload = isMobile ? 'auto' : 'auto';
 
         // Preload the first video
         if (index === 0 && !isMobile) {
-            video.load();
+//            video.load();
         }
 
         // Play the video when loaded to avoid the first visible hiccup
