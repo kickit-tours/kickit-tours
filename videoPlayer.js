@@ -2,7 +2,7 @@
 function getPercentProg() {
     var endBuf = video.buffered.end(0);
     var soFar = parseInt(((endBuf / video.duration) * 100));
-    document.getElementById("loadStatus").innerHTML =  'loading ' + soFar + '%';
+    document.getElementById("loadStatus").innerHTML =  soFar + '%';
 }
 
 function videoPlayer(videoSources) {
@@ -23,12 +23,6 @@ function videoPlayer(videoSources) {
                 video.play().catch(error => {
                   console.error('Failed to play video:', error);
                 });
-            });
-          }
-
-
-            video.play().catch(error => {
-                console.error('Failed to play video:', error);
             });
         }
         
