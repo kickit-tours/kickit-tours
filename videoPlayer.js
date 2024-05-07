@@ -11,6 +11,32 @@ function videoPlayer(videoSources, isMobile) {
       video.autoplay = true;
       video.src = src;
       container.appendChild(video);
+
+      // Listen for the 'timeupdate' event to check if the crossfade should start
+      video.addEventListener('timeupdate', () => {
+            const duration = video.duration;
+            const currentTime = video.currentTime;
+            const remainingTime = duration - currentTime;
+        
+            // Start crossfade just before the end of the current video
+            if (remainingTime <= 1) { // Adjust this threshold as needed
+            
+                var elementNodeCount = 0;
+        
+                for (var i = 0; i < container.childNodes.length; i++) {
+                    var childNode = container.childNodes[i];            
+                    // Check if the child node is an element node
+                    if (childNode.nodeType === 1) {
+                        elementNodeCount++;
+                    }
+                }
+                    
+                console.log(" -node count", elementNodeCount)
+                if(elementNodeCount == 1) {
+                    startCrossfade();
+                }
+            }
+      });
       console.log("created ",src);
 
       return video;
@@ -28,31 +54,6 @@ function videoPlayer(videoSources, isMobile) {
         console.error('Failed to play video:', error);
       });
     //});
-  
-    // Listen for the 'timeupdate' event to check if the crossfade should start
-    video.addEventListener('timeupdate', () => {
-      const duration = video.duration;
-      const currentTime = video.currentTime;
-      const remainingTime = duration - currentTime;
-  
-      // Start crossfade just before the end of the current video
-      if (remainingTime <= 1) { // Adjust this threshold as needed
-      
-        var elementNodeCount = 0;
-
-        for (var i = 0; i < container.childNodes.length; i++) {
-            var childNode = container.childNodes[i];            
-            // Check if the child node is an element node
-            if (childNode.nodeType === 1) {
-                elementNodeCount++;
-            }
-        }
-            
-        if(elementNodeCount == 1) {
-            startCrossfade();
-        }
-      }
-    });
   
     // Function to start the crossfade between the videos
     function startCrossfade() {
@@ -94,31 +95,7 @@ function videoPlayer(videoSources, isMobile) {
             }
         }
         currentVideoIndex = nextVideoIndex;
-
-        nextVideo.addEventListener('timeupdate', () => {
-            const duration = video.duration;
-            const currentTime = video.currentTime;
-            const remainingTime = duration - currentTime;
-    
-            // Start crossfade just before the end of the current video
-            if (remainingTime <= 1) { // Adjust this threshold as needed
-            
-            var elementNodeCount = 0;
-    
-            for (var i = 0; i < container.childNodes.length; i++) {
-                var childNode = container.childNodes[i];            
-                // Check if the child node is an element node
-                if (childNode.nodeType === 1) {
-                    elementNodeCount++;
-                }
-            }
-                
-            if(elementNodeCount == 1) {
-                startCrossfade();
-            }
-            }
-        });
-    
+   
       }, 1000); // Adjust this value to match the transition duration
     }
   }
