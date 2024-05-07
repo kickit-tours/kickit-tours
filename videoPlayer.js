@@ -6,10 +6,10 @@ function videoPlayer(videoSources) {
     videos.forEach((video, index) => {
       // Preload the video
       video.src = videoSources[index];
-      video.load();
   
       // Play the video when loaded to avoid the first visible hiccup
       if (video.id === 'video1') {
+        video.load();
         video.addEventListener('canplay', () => {
             console.log("First video to play: ",video.src)
             video.play().catch(error => {
