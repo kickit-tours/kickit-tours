@@ -21,6 +21,8 @@ function videoPlayer(videoSources) {
         const currentTime = video.currentTime;
         const remainingTime = duration - currentTime;
   
+        console.log("update ",video.src, duration, currentTime);
+
         // Start crossfade just before the end of the current video
         if (remainingTime <= 1) { // Adjust this threshold as needed
           startCrossfade();
