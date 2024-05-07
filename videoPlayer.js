@@ -53,6 +53,7 @@ function videoPlayer(videoSources, isMobile) {
       if (remainingTime <= 1) { // Adjust this threshold as needed
       
         var elementNodeCount = 0;
+
         for (var i = 0; i < container.childNodes.length; i++) {
             var childNode = container.childNodes[i];
             
@@ -68,7 +69,7 @@ function videoPlayer(videoSources, isMobile) {
             }
         }
             
-        if(elementNodeCounth == 1) {
+        if(elementNodeCount == 1) {
             startCrossfade();
         }
       }
