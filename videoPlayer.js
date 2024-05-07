@@ -4,7 +4,9 @@ function videoPlayer(videoSources) {
     let currentVideoIndex = 0;
   
     videos.forEach((video, index) => {
-        video.src = videoSources[index];
+        video.src = videoSources[index] + "#t=0.1";
+        video.preload = 'metadata';
+
  //       video.load();
 
         // Set preload attribute based on device type
