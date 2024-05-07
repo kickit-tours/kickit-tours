@@ -17,7 +17,10 @@ function videoPlayer(videoSources, isMobile) {
       return video;
     }
 
-    console.log("### ",container.childNodes.length)
+    var children = container.childNodes;
+    for(var i = 0; i < children.length; i++) {
+        console.log(" - Node: ", children[i]);
+    }
 
     const video = createVideoElement(videoSources[currentVideoIndex]);
   
@@ -40,8 +43,14 @@ function videoPlayer(videoSources, isMobile) {
   
       // Start crossfade just before the end of the current video
       if (remainingTime <= 1) { // Adjust this threshold as needed
-        console.log("# ",container.childNodes.length)
-        if(container.childNodes.length <= 2) {
+      
+        var children = container.childNodes;
+        for(var i = 0; i < children.length; i++) {
+            console.log(" + Node: ", children[i]);
+        }
+
+        
+        if(container.childNodes.length <= 3) {
             startCrossfade();
         }
       }
