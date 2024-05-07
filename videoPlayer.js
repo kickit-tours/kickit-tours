@@ -16,7 +16,9 @@ function videoPlayer(videoSources, isMobile) {
 
       return video;
     }
-  
+
+    console.log("### ",container.childNodes.length)
+
     const video = createVideoElement(videoSources[currentVideoIndex]);
   
     // Set preload attribute based on device type
@@ -39,7 +41,7 @@ function videoPlayer(videoSources, isMobile) {
       // Start crossfade just before the end of the current video
       if (remainingTime <= 1) { // Adjust this threshold as needed
         console.log("# ",container.childNodes.length)
-        if(container.childNodes.length <= 1) {
+        if(container.childNodes.length <= 2) {
             startCrossfade();
         }
       }
