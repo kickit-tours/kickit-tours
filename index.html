@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>KiCKiT Tours[44]</title>
+  <title>KiCKiT Tours[45]</title>
 
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -39,16 +39,14 @@
 
 <body>
   <div id="video-container">
-    <video id="video1" class="video" muted playsinline autoplay></video>
-    <video id="video2" class="video" muted playsinline></video>
+    <video id="video" class="video" muted playsinline autoplay></video>
   </div>
 
   <script src="videoPlayer.js"></script>
   <script>
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    const videoSources = ['./KickitBG4.mp4', './KickitBG1.mp4']; 
-    //const videoSources = ['./KickitBG4.mp4', './KickitBG1.mp4', './KickitBG2.mp4', './KickitBG3.mp4']; 
-    videoPlayer(videoSources);
+    const videoSources = ['./KickitBG4.mp4', './KickitBG1.mp4', './KickitBG2.mp4', './KickitBG3.mp4']; 
+    videoPlayer(videoSources, isMobile);
   </script>
 </body>
 </html>

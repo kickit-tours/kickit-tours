@@ -1,53 +1,56 @@
 // videoPlayer.js
-function getPercentProg(video) {
-    var endBuf = video.buffered.end(0);
-    var soFar = parseInt(((endBuf / video.duration) * 100));
-    document.getElementById("loadStatus").innerHTML =  soFar + '%';
-}
-
-function videoPlayer(videoSources) {
-    const videos = document.querySelectorAll('.video');
+function videoPlayer(videoSources, isMobile) {
+    const container = document.getElementById('container'); // Add a container element in your HTML
     let currentVideoIndex = 0;
   
-    videos.forEach((video, index) => {
-        video.muted = true;
-        video.controls = false;
-        video.src = videoSources[index];
-
-        // Set preload attribute based on device type
-        video.preload = isMobile ? 'metadata' : 'auto';
-
-        // Play the video when loaded to avoid the first visible hiccup
-        if (video.id === 'video1') {
-            video.play().catch(error => {
-                console.error('Failed to play video:', error);
-            });
-        }
-        
-        // Listen for the 'timeupdate' event to check if the crossfade should start
-        video.addEventListener('timeupdate', () => {
-            const duration = video.duration;
-            const currentTime = video.currentTime;
-            const remainingTime = duration - currentTime;
-    
-            // Start crossfade just before the end of the current video
-            if (remainingTime <= 1.5) { // Adjust this threshold as needed
-            startCrossfade();
-            }
-         });
+    function createVideoElement(src) {
+      const video = document.createElement('video');
+      video.className = 'video';
+      video.muted = true;
+      video.playsinline = true;
+      video.autoplay = true;
+      video.src = src;
+      container.appendChild(video);
+  
+      return video;
+    }
+  
+    const video = createVideoElement(videoSources[currentVideoIndex]);
+  
+    // Set preload attribute based on device type
+    video.preload = isMobile ? 'none' : 'auto';
+  
+    // Play the video when enough media has been loaded to play through without interruption
+    video.addEventListener('canplaythrough', () => {
+      video.play().catch(error => {
+        console.error('Failed to play video:', error);
+      });
+    });
+  
+    // Listen for the 'timeupdate' event to check if the crossfade should start
+    video.addEventListener('timeupdate', () => {
+      const duration = video.duration;
+      const currentTime = video.currentTime;
+      const remainingTime = duration - currentTime;
+  
+      // Start crossfade just before the end of the current video
+      if (remainingTime <= 1) { // Adjust this threshold as needed
+        startCrossfade();
+      }
     });
   
     // Function to start the crossfade between the videos
     function startCrossfade() {
-      const currentVideo = videos[currentVideoIndex];
-      const nextVideoIndex = (currentVideoIndex + 1) % videos.length;
-      const nextVideo = videos[nextVideoIndex];
+      // Create a new video element with the next video source
+      const nextVideoIndex = (currentVideoIndex + 1) % videoSources.length;
+      const nextVideo = createVideoElement(videoSources[nextVideoIndex]);
+      nextVideo.preload = isMobile ? 'none' : 'auto';
   
       // Activate the next video to make it visible with transition
       nextVideo.classList.add('active');
   
       // Deactivate the current video to fade it out with transition
-      currentVideo.classList.remove('active');
+      video.classList.remove('active');
   
       // Play the next video
       nextVideo.play().catch(error => {
@@ -56,25 +59,12 @@ function videoPlayer(videoSources) {
   
       // Switch to the next video after the transition completes
       setTimeout(() => {
-        currentVideo.pause();
-        currentVideo.currentTime = 0;
-        currentVideo.classList.remove('active');
+        video.pause();
+        video.currentTime = 0;
+        video.remove();
         currentVideoIndex = nextVideoIndex;
-      }, 1500); // Adjust this value to match the transition duration
+      }, 1000); // Adjust this value to match the transition duration
     }
-  
-    // Start crossfade immediately after the first video starts playing
-    videos[0].addEventListener('playing', startCrossfade);
-    
-    // Preload the second video after the first video has started playing
-//    videos[0].addEventListener('playing', () => {
-//      if (videos.length > 1) {
-//        const secondVideo = videos[1];
-//        secondVideo.src = videoSources[1];
-//        secondVideo.load();
-//      }
-//    });
-
   }
   
   window.videoPlayer = videoPlayer;
