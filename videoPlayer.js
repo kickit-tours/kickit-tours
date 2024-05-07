@@ -94,6 +94,31 @@ function videoPlayer(videoSources, isMobile) {
             }
         }
         currentVideoIndex = nextVideoIndex;
+
+        nextVideo.addEventListener('timeupdate', () => {
+            const duration = video.duration;
+            const currentTime = video.currentTime;
+            const remainingTime = duration - currentTime;
+    
+            // Start crossfade just before the end of the current video
+            if (remainingTime <= 1) { // Adjust this threshold as needed
+            
+            var elementNodeCount = 0;
+    
+            for (var i = 0; i < container.childNodes.length; i++) {
+                var childNode = container.childNodes[i];            
+                // Check if the child node is an element node
+                if (childNode.nodeType === 1) {
+                    elementNodeCount++;
+                }
+            }
+                
+            if(elementNodeCount == 1) {
+                startCrossfade();
+            }
+            }
+        });
+    
       }, 1000); // Adjust this value to match the transition duration
     }
   }
