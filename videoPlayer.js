@@ -61,7 +61,7 @@ function videoPlayer(videoSources, isMobile) {
       setTimeout(() => {
         video.pause();
         video.currentTime = 0;
-        container.removeChild(video); // Remove the previous video element
+        container.removeChild(container.firstChild); // Remove the previous video element
         currentVideoIndex = nextVideoIndex;
       }, 1000); // Adjust this value to match the transition duration
     }
