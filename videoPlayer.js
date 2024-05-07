@@ -10,19 +10,17 @@ function videoPlayer(videoSources) {
     let currentVideoIndex = 0;
   
     videos.forEach((video, index) => {
+        video.muted = true;
+        video.controls = false;
         video.src = videoSources[index];
-        video.load();
 
         // Set preload attribute based on device type
         video.preload = isMobile ? 'metadata' : 'auto';
 
         // Play the video when loaded to avoid the first visible hiccup
         if (video.id === 'video1') {
-//            video.addEventListener('progress', getPercentProg(video), false);
-            video.addEventListener('canplaythrough', () => {
-                video.play().catch(error => {
-                  console.error('Failed to play video:', error);
-                });
+            video.play().catch(error => {
+                console.error('Failed to play video:', error);
             });
         }
         
@@ -37,12 +35,6 @@ function videoPlayer(videoSources) {
             startCrossfade();
             }
          });
-    });
-  
-    // Mute the videos and hide controls
-    videos.forEach(video => {
-        video.muted = true;
-        video.controls = false;
     });
   
     // Function to start the crossfade between the videos
