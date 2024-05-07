@@ -19,11 +19,11 @@ function videoPlayer(videoSources) {
         // Play the video when loaded to avoid the first visible hiccup
         if (video.id === 'video1') {
             video.addEventListener('progress', getPercentProg, false);
-            video.addEventListener('canplaythrough', () => {
+ //           video.addEventListener('canplaythrough', () => {
                 video.play().catch(error => {
                   console.error('Failed to play video:', error);
                 });
-            });
+ //           });
         }
         
         // Listen for the 'timeupdate' event to check if the crossfade should start
