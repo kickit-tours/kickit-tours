@@ -99,8 +99,16 @@ a {
 }
 
 #video2 {
-  opacity: 0; /* Initially hide the second video */
-  transition: opacity 0.5s ease-in-out; /* Crossfade transition */
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out
+}
+#video3 {
+  opacity: 0; 
+  transition: opacity 0.5s ease-in-out; 
+}
+#video4 {
+  opacity: 0; 
+  transition: opacity 0.5s ease-in-out; 
 }
 
 @media only screen and (max-width: 768px) {
