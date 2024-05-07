@@ -4,37 +4,38 @@ function videoPlayer(videoSources) {
     let currentVideoIndex = 0;
   
     videos.forEach((video, index) => {
-        
-    // Preload the first video
-//    if (index === 0) {
-        video.src = videoSources[index];
-//        video.load();
-//    }  
+        // Set preload attribute based on device type
+        video.preload = isMobile ? 'none' : 'auto';
 
-    // Play the video when loaded to avoid the first visible hiccup
-    if (video.id === 'video1') {
-        video.play().catch(error => {
-            console.error('Failed to play video:', error);
-        });
-    }
-    
-    // Listen for the 'timeupdate' event to check if the crossfade should start
-    video.addEventListener('timeupdate', () => {
-        const duration = video.duration;
-        const currentTime = video.currentTime;
-        const remainingTime = duration - currentTime;
-  
-        // Start crossfade just before the end of the current video
-        if (remainingTime <= 2.5) { // Adjust this threshold as needed
-          startCrossfade();
+        // Preload the first video
+        if (index === 0 && !isMobile) {
+        video.load();
         }
-      });
+
+        // Play the video when loaded to avoid the first visible hiccup
+        if (video.id === 'video1') {
+            video.play().catch(error => {
+                console.error('Failed to play video:', error);
+            });
+        }
+        
+        // Listen for the 'timeupdate' event to check if the crossfade should start
+        video.addEventListener('timeupdate', () => {
+            const duration = video.duration;
+            const currentTime = video.currentTime;
+            const remainingTime = duration - currentTime;
+    
+            // Start crossfade just before the end of the current video
+            if (remainingTime <= 2.5) { // Adjust this threshold as needed
+            startCrossfade();
+            }
+         });
     });
   
     // Mute the videos and hide controls
     videos.forEach(video => {
-      video.muted = true;
-      video.controls = false;
+        video.muted = true;
+        video.controls = false;
     });
   
     // Function to start the crossfade between the videos
