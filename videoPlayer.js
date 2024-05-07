@@ -24,11 +24,11 @@ function videoPlayer(videoSources, isMobile) {
     video.classList.add('active');
 
     // Play the video when enough media has been loaded to play through without interruption
-    video.addEventListener('canplaythrough', () => {
+    //video.addEventListener('canplaythrough', () => {
       video.play().catch(error => {
         console.error('Failed to play video:', error);
       });
-    });
+    //});
   
     // Listen for the 'timeupdate' event to check if the crossfade should start
     video.addEventListener('timeupdate', () => {
@@ -39,7 +39,7 @@ function videoPlayer(videoSources, isMobile) {
       // Start crossfade just before the end of the current video
       if (remainingTime <= 1) { // Adjust this threshold as needed
         console.log("# ",container.childNodes.length)
-        if(container.childNodes.length <= 2) {
+        if(container.childNodes.length <= 1) {
             startCrossfade();
         }
       }
