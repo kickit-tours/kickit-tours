@@ -39,7 +39,9 @@ function videoPlayer(videoSources, isMobile) {
       // Start crossfade just before the end of the current video
       if (remainingTime <= 1) { // Adjust this threshold as needed
         console.log("# ",container.childNodes.length)
-        startCrossfade();
+        if(container.childNodes.length <= 2) {
+            startCrossfade();
+        }
       }
     });
   
