@@ -16,20 +16,6 @@ function videoPlayer(videoSources, isMobile) {
       return video;
     }
 
-    for (var i = 0; i < container.childNodes.length; i++) {
-        var childNode = container.childNodes[i];
-        
-        // Check if the child node is an element node
-        if (childNode.nodeType === 1) {
-            // Check if the element has a src attribute
-            if (childNode.hasAttribute('src')) {
-                // Get the value of the src attribute
-                var srcValue = childNode.getAttribute('src');
-                console.log(" - Source attribute value:", srcValue);
-            }
-        }
-    }
-
     const video = createVideoElement(videoSources[currentVideoIndex]);
   
     // Set preload attribute based on device type
@@ -55,17 +41,10 @@ function videoPlayer(videoSources, isMobile) {
         var elementNodeCount = 0;
 
         for (var i = 0; i < container.childNodes.length; i++) {
-            var childNode = container.childNodes[i];
-            
+            var childNode = container.childNodes[i];            
             // Check if the child node is an element node
             if (childNode.nodeType === 1) {
-                // Check if the element has a src attribute
                 elementNodeCount++;
-                if (childNode.hasAttribute('src')) {
-                    // Get the value of the src attribute
-                    var srcValue = childNode.getAttribute('src');
-                    console.log(" + Source attribute value:", srcValue);
-                }
             }
         }
             
@@ -110,7 +89,7 @@ function videoPlayer(videoSources, isMobile) {
                     console.log(" +++ Source attribute value:", srcValue);
                 }
                 console.log("remove!");
-                container.removeChild(container.childNode);
+                container.removeChild(childNode);
                 break;
             }
         }
