@@ -2,7 +2,6 @@
 function videoPlayer(videoSources) {
     const videos = document.querySelectorAll('.video');
     let currentVideoIndex = 0;
-    let isFirstPlay = true;
   
     videos.forEach((video, index) => {
       // Preload the video
@@ -10,16 +9,14 @@ function videoPlayer(videoSources) {
       video.load();
   
       // Play the video when loaded to avoid the first visible hiccup
-      video.addEventListener('canplay', () => {
-        if (isFirstPlay) {
-          console.log("First video to play: ",video.src)
-          
-          video.play().catch(error => {
+      if (video.id === 'video1') {
+        video.addEventListener('canplay', () => {
+            console.log("First video to play: ",video.src)
+            video.play().catch(error => {
             console.error('Failed to play video:', error);
           });
-          isFirstPlay = false;
-        }
-      });
+        });
+      }
   
       // Listen for the 'timeupdate' event to check if the crossfade should start
       video.addEventListener('timeupdate', () => {
@@ -68,11 +65,6 @@ function videoPlayer(videoSources) {
   
     // Start crossfade immediately after the first video starts playing
     videos[0].addEventListener('playing', startCrossfade);
-
-    // Reset currentVideoIndex when isFirstPlay is true
-    if (isFirstPlay) {
-        currentVideoIndex = 0;
-    }
     
   }
   
