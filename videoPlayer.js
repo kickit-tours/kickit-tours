@@ -4,12 +4,14 @@ function videoPlayer(videoSources) {
     let currentVideoIndex = 0;
   
     videos.forEach((video, index) => {
+        video.src = videoSources[index];
+
         // Set preload attribute based on device type
         video.preload = isMobile ? 'none' : 'auto';
 
         // Preload the first video
         if (index === 0 && !isMobile) {
-        video.load();
+            video.load();
         }
 
         // Play the video when loaded to avoid the first visible hiccup
