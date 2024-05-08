@@ -23,6 +23,11 @@ a {
     text-decoration: none;
 }
 
+.image-logo {
+  width: auto; /* Set the width of the image */
+  height: 50px; /* Maintain aspect ratio */
+}
+
 .header{
   border-bottom: 1px solid #E2E8F0;
 }
