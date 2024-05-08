@@ -24,7 +24,7 @@ const video2 = document.getElementById('video2');
 function preloadNextVideo() {
     setTimeout(() => {
         const nextVideoIndex = (currentVideoIndex + 1) % videoSources.length;
-        const nextVideo = new HTMLVideoElement(); // Using new Video() for preloading
+        const nextVideo = document.createElement('video'); // Creating a new video element
         nextVideo.src = videoSources[nextVideoIndex];
         nextVideo.load();
     }, preloadAfter * 1000); // Delayed start of loading after 2 seconds
