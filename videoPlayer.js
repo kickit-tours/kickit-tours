@@ -67,7 +67,7 @@ function videoPlayer(videoSources, isMobile) {
       nextVideo.classList.add('active');
   
       // Deactivate the current video to fade it out with transition
-      video.classList.remove('active');
+      video.classList.remove('active'); // WERKT NIET !! ######################################################
   
       // Play the next video
       nextVideo.play().catch(error => {
