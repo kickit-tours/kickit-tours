@@ -84,7 +84,11 @@ a {
   top: 100px;
   left: 0;
   width: 100%;
-  height: 35%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*B height: 100vh;  Set height as needed */
+  max-height: 35%;
   z-index: -1;
 }
 
