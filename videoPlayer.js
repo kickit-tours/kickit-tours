@@ -1,14 +1,17 @@
 // Array of video sources
 const videoSources = ["KickitBG1.mp4", "KickitBG2.mp4", "KickitBG3.mp4", "KickitBG4.mp4"];
 
-// Index of the current video (initially set to the last element)
-let currentVideoIndex = videoSources.length - 1;
+// Index of the current video (initially set to the first element)
+let currentVideoIndex = 0;
 
 // Duration from the end of the video to trigger crossfade (in seconds)
-const crossfadeDuration = 2; // Adjusted to 1 second
+const crossfadeDuration = 2; // Adjusted to 2 seconds
 
 // Flag to track whether a crossfade is in progress
 let isCrossfadeInProgress = false;
+
+// Flag to track whether it's the first loop
+let isFirstLoop = true;
 
 // Flag to track which video is currently playing
 let isVideo1Playing = true;
@@ -40,9 +43,10 @@ function checkCrossfade() {
     const currentVideo = isVideo1Playing ? video1 : video2;
     const currentTime = currentVideo.currentTime;
     const duration = currentVideo.duration;
+    const crossfadeStartTime = isFirstLoop ? crossfadeDuration - 1 : crossfadeDuration;
 
     // Check if crossfade is already in progress or if video is close to ending
-    if (!isCrossfadeInProgress && duration - currentTime < crossfadeDuration) {
+    if (!isCrossfadeInProgress && duration - currentTime < crossfadeStartTime) {
         // Set flag to indicate crossfade is in progress
         isCrossfadeInProgress = true;
 
@@ -74,3 +78,8 @@ function checkCrossfade() {
 // Check for crossfade on timeupdate
 video1.addEventListener('timeupdate', checkCrossfade);
 video2.addEventListener('timeupdate', checkCrossfade);
+
+// After the first loop, set isFirstLoop to false
+video1.onended = function() {
+    isFirstLoop = false;
+};
