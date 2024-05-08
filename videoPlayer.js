@@ -5,7 +5,7 @@ const videoSources = ["KickitBG1.mp4", "KickitBG2.mp4", "KickitBG3.mp4", "Kickit
 let currentVideoIndex = videoSources.length - 1;
 
 // Duration from the end of the video to trigger crossfade (in seconds)
-const crossfadeDuration = 1; // Adjusted to 1 second
+const crossfadeDuration = 2; // Adjusted to 1 second
 
 // Flag to track whether a crossfade is in progress
 let isCrossfadeInProgress = false;
