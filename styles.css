@@ -146,18 +146,4 @@ a {
       cursor: pointer;
   }
 
-  #video-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 60vh;
-    overflow: hidden;
-  }
-
-  #video-container video {
-      width: 100%;
-      height: auto;
-  }
-  
-
 }
