@@ -43,7 +43,7 @@ function checkCrossfade() {
     const currentVideo = isVideo1Playing ? video1 : video2;
     const currentTime = currentVideo.currentTime;
     const duration = currentVideo.duration;
-    const crossfadeStartTime = isFirstLoop ? crossfadeDuration - 1 : crossfadeDuration;
+    const crossfadeStartTime = isFirstLoop ? crossfadeDuration + 1 : crossfadeDuration;
 
     // Check if crossfade is already in progress or if video is close to ending
     if (!isCrossfadeInProgress && duration - currentTime < crossfadeStartTime) {
