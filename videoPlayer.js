@@ -7,6 +7,9 @@ let currentVideoIndex = videoSources.length-1;
 // Duration from the end of the video to trigger crossfade (in seconds)
 const crossfadeDuration = 2;
 
+// Flag to track if crossfade is in progress
+let isCrossfadeInProgress = false;
+
 // Function to switch to the next video
 function nextVideo() {
     currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
