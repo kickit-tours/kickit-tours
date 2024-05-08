@@ -91,7 +91,7 @@ a {
   align-items: center;
   width: 100%;
   /*B height: 100vh;  Set height as needed */
-  max-height: 35%;
+  height: 35%;
   z-index: -1;
 }
 
@@ -162,7 +162,6 @@ a {
   }
 
   #video-container {
-    top: 100px;
     height: 60%;
   }
   
