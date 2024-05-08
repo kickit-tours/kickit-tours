@@ -5,7 +5,7 @@ const videoSources = ["KickitBG1.mp4", "KickitBG2.mp4", "KickitBG3.mp4", "Kickit
 let currentVideoIndex = 0;
 
 // Duration from the end of the video to trigger crossfade (in seconds)
-const crossfadeDuration = 3; // Adjusted to 2 seconds
+const crossfadeDuration = 4;
 
 // Flag to track whether a crossfade is in progress
 let isCrossfadeInProgress = false;
@@ -20,6 +20,8 @@ const video2 = document.getElementById('video2');
 // Play the first video
 video1.src = videoSources[currentVideoIndex];
 video1.play();
+video1.style.opacity = 1;
+video2.style.opacity = 0;
 
 // Function to switch to the next video
 function nextVideo() {
@@ -41,8 +43,11 @@ function checkCrossfade() {
     const currentTime = currentVideo.currentTime;
     const duration = currentVideo.duration;
 
+    if (isCrossfadeInProgress) {
+        return;
+    }
     // Check if crossfade is already in progress or if video is close to ending
-    if (!isCrossfadeInProgress && duration - currentTime < crossfadeDuration) {
+    if (duration - currentTime < crossfadeDuration) {
         // Set flag to indicate crossfade is in progress
         isCrossfadeInProgress = true;
 
@@ -55,11 +60,8 @@ function checkCrossfade() {
             video1.style.opacity = 1;
         }
 
-        // Switch to the next video if not the last video in the array
-        if (currentVideoIndex !== videoSources.length - 1) {
-            nextVideo();
-        }
-
+        nextVideo();
+        
         // Update which video is currently playing
         isVideo1Playing = !isVideo1Playing;
 
