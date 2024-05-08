@@ -86,24 +86,31 @@ a {
 
 
 #video-container {
- /* position: absolute;
-  top: 100px;
-  left: 0;
+  position: relative;
   width: 100%;
-  */
+  padding-top: 56.25%; /* 16:9 aspect ratio (9 / 16 * 100) */
 
+ /* 
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  /*B height: 100vh;  Set height as needed */
   height: 35%;
   z-index: -1;
+  */
+
 }
 
-.video {
+#video-container video {
   position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 
+  /*
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
@@ -111,6 +118,7 @@ a {
   max-height: 100%;
   width: auto;
   height: auto;
+  */
 
 /*
   top: 0;
@@ -168,11 +176,12 @@ a {
       cursor: pointer;
   }
 
+  /*
   #video-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60vh; /* Adjusted to 60% of the viewport height */
+    height: 60vh;
     overflow: hidden;
   }
 
@@ -182,5 +191,6 @@ a {
       width: auto;
       height: auto;
   }
+  */
 
 }
