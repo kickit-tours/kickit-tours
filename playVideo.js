@@ -2,8 +2,8 @@
 const video = document.getElementById('video');
 
 // Define video sources for different platforms
-const desktopVideo = 'crossfade-desktop.mp4';
-const mobileVideo = 'crossfade-mobile.mp4';
+const desktopVideo = 'KickitBG-desktop.mp4';
+const mobileVideo = 'KickitBG-mobile.mp4';
 
 // Function to detect if the user agent is Safari on iOS
 function isSafariOniOS() {
