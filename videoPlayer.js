@@ -2,7 +2,10 @@
 const videoSources = ["KickitBG1.mp4", "KickitBG2.mp4", "KickitBG3.mp4", "KickitBG4.mp4"];
 
 // Index of the current video
-let currentVideoIndex = 0;
+let currentVideoIndex = videoSources.length-1;
+
+// Duration from the end of the video to trigger crossfade (in seconds)
+const crossfadeDuration = 2;
 
 // Function to switch to the next video
 function nextVideo() {
@@ -12,8 +15,21 @@ function nextVideo() {
     video.play();
 }
 
-// Play the next video when the current one ends
-document.getElementById('video').addEventListener('ended', nextVideo);
+// Play the next video with crossfade when the current one is close to ending
+document.getElementById('video').addEventListener('timeupdate', function() {
+    const video = this;
+    const currentTime = video.currentTime;
+    const duration = video.duration;
+
+    if (duration - currentTime < crossfadeDuration) {
+        // Crossfade when the remaining time is less than crossfadeDuration
+        video.style.opacity = 0;
+        setTimeout(function() {
+            nextVideo();
+            video.style.opacity = 1;
+        }, crossfadeDuration * 1000); // Convert seconds to milliseconds
+    }
+});
 
 // Play the first video
 nextVideo();
