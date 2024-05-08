@@ -5,10 +5,10 @@ const videoSources = ["KickitBG1.mp4", "KickitBG2.mp4", "KickitBG3.mp4", "Kickit
 let currentVideoIndex = 0;
 
 // Duration from the end of the video to trigger crossfade (in seconds)
-const crossfadeDuration = 3; // Adjusted to 2 seconds
+const crossfadeDuration = 2; // Adjusted to 2 seconds
 
-// Duration from the end of the video to start playing the next video (in seconds)
-const nextVideoStartTime = crossfadeDuration - 1; // Adjusted to 1 second before crossfade
+// Duration from the end of the video to start loading the next video (in seconds)
+const preloadAfter = 2; 
 
 // Flag to track whether a crossfade is in progress
 let isCrossfadeInProgress = false;
@@ -20,9 +20,21 @@ let isVideo1Playing = true;
 const video1 = document.getElementById('video1');
 const video2 = document.getElementById('video2');
 
+// Preload the next video after 2 seconds of playing the current video
+function preloadNextVideo() {
+    setTimeout(() => {
+        const nextVideoIndex = (currentVideoIndex + 1) % videoSources.length;
+        const nextVideo = new Video(); // Using new Video() for preloading
+        nextVideo.src = videoSources[nextVideoIndex];
+        nextVideo.load();
+    }, preloadAfter * 1000); // Delayed start of loading after 2 seconds
+}
 // Play the first video
 video1.src = videoSources[currentVideoIndex];
 video1.play();
+
+// Preload the next video initially
+preloadNextVideo();
 
 // Function to switch to the next video
 function nextVideo() {
@@ -36,6 +48,9 @@ function nextVideo() {
         video1.src = nextVideoSrc;
         video1.play();
     }
+    
+    // Preload the next video after switching
+    preloadNextVideo();
 }
 
 // Play the next video with crossfade when the current one is close to ending
@@ -49,26 +64,22 @@ function checkCrossfade() {
         // Set flag to indicate crossfade is in progress
         isCrossfadeInProgress = true;
 
+        // Start crossfade
+        if (isVideo1Playing) {
+            video1.style.opacity = 0;
+            video2.style.opacity = 1;
+        } else {
+            video2.style.opacity = 0;
+            video1.style.opacity = 1;
+        }
+
+        // Switch to the next video
         nextVideo();
-        
-        // Start cross-fading with delay:
-        setTimeout(() => {
-            // Start crossfade
-            if (isVideo1Playing) {
-                video1.style.opacity = 0;
-                video2.style.opacity = 1;
-            } else {
-                video2.style.opacity = 0;
-                video1.style.opacity = 1;
-            }
 
-            // Update which video is currently playing
-            isVideo1Playing = !isVideo1Playing;
+        // Update which video is currently playing
+        isVideo1Playing = !isVideo1Playing;
 
-        }, (crossfadeDuration - nextVideoStartTime) * 1000);
-
-    
-        // Stop cross-fading: Reset opacity after crossfade duration
+        // Reset opacity after crossfade duration
         setTimeout(() => {
             video1.style.opacity = isVideo1Playing ? 1 : 0;
             video2.style.opacity = isVideo1Playing ? 0 : 1;
