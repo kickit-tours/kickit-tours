@@ -2,7 +2,7 @@
 const videoSources = ["KickitBG1.mp4", "KickitBG2.mp4", "KickitBG3.mp4", "KickitBG4.mp4"];
 
 // Index of the current video (initially set to the first element)
-let currentVideoIndex = videoSources.length-1;
+let currentVideoIndex = 0;
 
 // Duration from the end of the video to trigger crossfade (in seconds)
 const crossfadeDuration = 2; // Adjusted to 2 seconds
@@ -30,7 +30,10 @@ function preloadNextVideo() {
     }, preloadAfter * 1000); // Delayed start of loading after 2 seconds
 }
 // Play the first video
-nextVideo();
+video1.src = videoSources[0];
+video1.play();
+preloadNextVideo();
+
 
 // Function to switch to the next video
 function nextVideo() {
