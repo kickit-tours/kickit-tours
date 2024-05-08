@@ -146,4 +146,7 @@ a {
       cursor: pointer;
   }
 
+  #video-container video {
+    object-fit: fill;
+  }
 }
