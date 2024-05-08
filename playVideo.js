@@ -2,8 +2,13 @@
 const video = document.getElementById('video');
 
 // Define video sources for different platforms
-const desktopVideo = 'KickitBG-desktop.mp4';
-const mobileVideo = 'KickitBG-mobile.mp4';
+const desktopVideo = 'crossfade-desktop.mp4';
+const mobileVideo = 'crossfade-mobile.mp4';
+
+// Function to detect if the user agent is Safari on iOS
+function isSafariOniOS() {
+    return /iP(ad|hone|od).+Version\/[\d.]+.*Safari/i.test(navigator.userAgent);
+}
 
 // Function to detect if the device is a mobile device
 function isMobileDevice() {
@@ -11,8 +16,8 @@ function isMobileDevice() {
 }
 
 // Set the video source based on the platform
-if (isMobileDevice()) {
-    video.src = mobileVideo; // Use mobile video for mobile devices
+if (isMobileDevice() || isSafariOniOS()) {
+    video.src = mobileVideo; // Use mobile video for mobile devices and Safari on iOS
 } else {
     video.src = desktopVideo; // Use desktop video for other platforms
 }
