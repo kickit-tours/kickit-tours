@@ -21,12 +21,18 @@ document.getElementById('video').addEventListener('timeupdate', function() {
     const currentTime = video.currentTime;
     const duration = video.duration;
 
-    if (duration - currentTime < crossfadeDuration) {
+    // Check if crossfade is already in progress or if video is close to ending
+    if (!isCrossfadeInProgress && duration - currentTime < crossfadeDuration) {
+        // Set flag to indicate crossfade is in progress
+        isCrossfadeInProgress = true;
+
         // Crossfade when the remaining time is less than crossfadeDuration
         video.style.opacity = 0;
         setTimeout(function() {
             nextVideo();
             video.style.opacity = 1;
+            // Reset flag after crossfade is completed
+            isCrossfadeInProgress = false;
         }, crossfadeDuration * 1000); // Convert seconds to milliseconds
     }
 });
