@@ -2,7 +2,7 @@
 const videoSources = ["KickitBG1.mp4", "KickitBG2.mp4", "KickitBG3.mp4", "KickitBG4.mp4"];
 
 // Index of the current video
-let currentVideoIndex = 0;
+let currentVideoIndex = videoSources.length-1;
 
 // Function to switch to the next video
 function nextVideo() {
