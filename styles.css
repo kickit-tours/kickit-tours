@@ -24,7 +24,7 @@ a {
 }
 
 .header{
-  border-bottom: 1px solid #E2E8F0;
+  border-bottom: 1px solid #d1d1d1;
 }
 
 .navbar {
@@ -116,6 +116,12 @@ a {
 
 .video::-webkit-media-controls-panel {
   display: none !important;
+}
+
+.h1 {
+  font-size: large;
+  font-family: 'Roboto', sans-serif;
+  padding: 2rem 2rem;
 }
 
 @media only screen and (max-width: 768px) {
