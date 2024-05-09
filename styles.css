@@ -147,6 +147,7 @@ a {
   }
 
   #video-container video {
+    height: 60%;
     object-fit: fill;
   }
 }
