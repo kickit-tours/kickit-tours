@@ -123,12 +123,13 @@ a {
   text-align: center;
   letter-spacing: 2px;
   color: #536B52;
-  left: 10%;
-  width: 80%;
+  width: 100%;
   font-size: x-large;
   font-weight: 300;
   font-family: 'Montserrat', sans-serif;
   padding-top: 30px;
+  margin-left: 20%;
+  margin-right: 20%;
 }
 
 @media only screen and (max-width: 768px) {
