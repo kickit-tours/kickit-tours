@@ -146,8 +146,9 @@ a {
       cursor: pointer;
   }
 
-  #video-container video {
-    height: 60%;
-    object-fit: fill;
+  video-container {
+    width: auto;
+    height: 60vh;
   }
+  
 }
