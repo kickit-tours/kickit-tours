@@ -123,6 +123,7 @@ a {
   text-align: center;
   letter-spacing: 2px;
   color: #536B52;
+  left: 10%;
   width: 80%;
   font-size: x-large;
   font-weight: 300;
@@ -178,6 +179,7 @@ a {
   
   .title {
     font-size: large;
+    padding-top: 20px;
   }
   
 }
