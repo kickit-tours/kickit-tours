@@ -5,8 +5,6 @@ function roundRect(id, x, y, w, h, radius)
   var r = x + w;
   var b = y + h;
   context.beginPath();
-  context.strokeStyle="green";
-  context.lineWidth="4";
   context.moveTo(x+radius, y);
   context.lineTo(r-radius, y);
   context.quadraticCurveTo(r, y, r, y+radius);
@@ -16,5 +14,6 @@ function roundRect(id, x, y, w, h, radius)
   context.quadraticCurveTo(x, b, x, b-radius);
   context.lineTo(x, y+radius);
   context.quadraticCurveTo(x, y, x+radius, y);
-  context.stroke();
+  context.fillStyle="green";
+  context.fill();
 }
