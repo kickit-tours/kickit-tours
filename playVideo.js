@@ -16,7 +16,7 @@ function isMobileDevice() {
 }
 
 // Set the video source based on the platform
-if (isMobileDevice() || isSafariOniOS()) {
+if (isSafariOniOS()) {
     video.src = mobileVideo; // Use mobile video for mobile devices and Safari on iOS
 } else {
     video.src = desktopVideo; // Use desktop video for other platforms
@@ -24,6 +24,4 @@ if (isMobileDevice() || isSafariOniOS()) {
 
 // Play the video
 video.play();
-console.log("mobile", isMobileDevice());
-console.log("iOS", isSafariOniOS());
 console.log("Agent", navigator.userAgent);
