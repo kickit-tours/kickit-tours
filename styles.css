@@ -173,8 +173,8 @@ a {
   }
 
   video-container {
-    width: auto;
-    height: 400px;
+    width: 80%;
+    height: 80%;
     top: -20%;
     transform: translateY(-20%);
   }
