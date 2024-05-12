@@ -24,3 +24,5 @@ if (isMobileDevice() || isSafariOniOS()) {
 
 // Play the video
 video.play();
+console.log("mobile", isMobileDevice());
+console.log("iOS", isSafariOniOS());
