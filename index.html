@@ -4,10 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>KiCKiT Tours[51]</title>
+  <title>KiCKiT Tours[52]</title>
 
   <link rel="stylesheet" href="styles.css">
+
   <link rel="stylesheet" href="carousel-style.css">
+  <style>
+    .site-container {
+      max-width: 800px;
+      margin: 3em auto;
+      padding: 2em;
+    }
+
+    .demo-title {
+      text-align: center;
+      margin-bottom: 2em;
+    }
+
+    .carousel + .carousel {
+      margin-top: 4em;
+    }
+  </style>
 </head>
 
 <header class="header">
@@ -53,12 +70,120 @@
     <h1 class="title">Abenteuer auf zwei Rädern in Dresden und Umgebung</h1>
   </div>
 
+  <div class="site-container">
+    <h1 class="demo-title">JavaScript Carousels</h1>
+    <div
+      id="carousel-1"
+      class="carousel"
+      role="region"
+      aria-labelledby="carousel-1-title"
+    >
+      <h2 class="carousel-title" id="carousel-1-title">
+        Beautiful Landscapes
+      </h2>
+      <p class="carousel-description">
+        An autoplaying carousel of landscapes with pagination enabled
+      </p>
+      <div
+        class="slide"
+        role="tabpanel"
+        aria-labelledby="carousel-1-slide-1-title"
+      >
+        <div class="slide-content">
+          <div class="slide-caption">
+            <h3 id="carousel-1-slide-1-title">Nanda Kot peak</h3>
+            <p>Mukteshwar, Uttarakhand</p>
+          </div>
+
+          <img
+            src="https://source.unsplash.com/gkIXFjDRyDc/1600x700"
+            alt="Nanda Kot peak"
+            width="800"
+            height="350"
+          />
+        </div>
+      </div>
+
+      <div
+        class="slide"
+        role="tabpanel"
+        aria-labelledby="carousel-1-slide-2-title"
+      >
+        <div class="slide-content">
+          <div class="slide-caption">
+            <h3 id="carousel-1-slide-2-title">Manali Mountains</h3>
+            <p>Manali, Himachal Pradesh</p>
+          </div>
+          <img
+            src="https://source.unsplash.com/oIXJ839p55k/1600x700"
+            alt="Manali Mountains"
+            width="800"
+            height="350"
+          />
+        </div>
+      </div>
+
+      <div
+        class="slide"
+        role="tabpanel"
+        aria-labelledby="carousel-1-slide-3-title"
+      >
+        <div class="slide-content">
+          <div class="slide-caption">
+            <h3 id="carousel-1-slide-3-title">Aotearoa</h3>
+            <p>New Zealand</p>
+          </div>
+
+          <img
+            src="https://source.unsplash.com/MlWRXR18fAg/1600x700"
+            alt="Aotearoa"
+            width="800"
+            height="350"
+          />
+        </div>
+      </div>
+      <div
+        class="slide"
+        role="tabpanel"
+        aria-labelledby="carousel-1-slide-4-title"
+      >
+        <div class="slide-content">
+          <div class="slide-caption">
+            <h3 id="carousel-1-slide-4-title">Richmond Park</h3>
+            <p>London, England</p>
+          </div>
+
+          <img
+            src="https://source.unsplash.com/jlVEj8IDPQc/1600x700"
+            alt="London’s Richmond Park"
+            width="800"
+            height="350"
+          />
+        </div>
+      </div>
+    </div>
+    
   <script src="playVideo.js"></script>
   <script src="menu.js"></script>
   <script src="roundRect.js"></script>
 
   <script type="text/javascript">
     roundRect("rect1",0, 0, 90, 70, 12, -15, -30,  -10);
+  </script>
+
+  <script src="carousel.js"></script>
+  <script>
+      const carousel1 = JSCarousel({
+        carouselSelector: "#carousel-1",
+        slideSelector: ".slide",
+        enablePagination: true,
+      });
+
+      carousel1.create();
+
+      window.addEventListener("unload", () => {
+        carousel1.destroy();
+      });
   </script>
 
 </body>
