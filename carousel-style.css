@@ -36,6 +36,23 @@ iframe {
   max-width: 100%;
 }
 
+.site-container {
+    font: 1.6em/220% 'Montserrat';
+    font-weight: 200;
+    max-width: 800px;
+    margin: 3em auto;
+    padding: 2em;
+  }
+
+  .demo-title {
+    text-align: center;
+    margin-bottom: 0.5em;
+  }
+
+  .carousel + .carousel {
+    margin-top: 2em;
+  }
+
 .carousel-inner {
   overflow: hidden;
   position: relative;
