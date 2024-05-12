@@ -4,13 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>KiCKiT Tours[34]</title>
+  <title>KiCKiT Tours[35]</title>
 
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <header class="header">
   <nav class="navbar">
+    <canvas id="rect1" width="60" height="60"></canvas>
+
       <a href="#" class="nav-link">
         <img class="nav-logo" src="Kickit-logo.png">
         <span class="nav-logo-text">KiCKiT.</span>
@@ -52,6 +54,11 @@
 
   <script src="playVideo.js"></script>
   <script src="menu.js"></script>
+  <script src="roundRect.js"></script>
+
+  <script type="text/javascript">
+    roundRect("rect1",2, 2, 50, 50, 8);
+  </script>
 
 </body>
 </html>
