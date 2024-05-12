@@ -22,7 +22,7 @@ const JSCarousel = ({
   slideSelector,
   enablePagination = true,
   enableAutoplay = true,
-  autoplayInterval = 2000,
+  autoplayInterval = 4000,
 }) => {
   /*
    * Initialize variables to keep track of carousel state and
