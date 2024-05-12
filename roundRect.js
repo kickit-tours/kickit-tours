@@ -14,9 +14,9 @@ function roundRect(id, x, y, w, h, radius, rotation, transX, transY)
   context.quadraticCurveTo(x, b, x, b-radius);
   context.lineTo(x, y+radius);
   context.quadraticCurveTo(x, y, x+radius, y);
-  context.fillStyle="#b4e1b3";
-  context.fill();
   context.rotate(rotation * Math.PI / 180);
   context.transX(transX);
-  context.transY(transY)
+  context.transY(transY);
+  context.fillStyle="#b4e1b3";
+  context.fill();
 }
