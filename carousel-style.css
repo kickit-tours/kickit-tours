@@ -65,8 +65,8 @@ h2 {
 
 @media only screen and (max-width: 768px) {
     .site-container {
-        margin: 1.5em 2.5em auto;
-        padding: 0em 2em;
+        margin: 1.5em 2em auto;
+        padding: 0em;
     }
 
     h1 {
