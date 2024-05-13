@@ -53,6 +53,17 @@ iframe {
     margin-top: 2em;
   }
 
+  .site-container h1 {
+    font-size: 1.5em;
+    font-weight: 200;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .site-container {
+        padding: 0em 2em;
+    }
+  }
+
 .carousel-inner {
   overflow: hidden;
   position: relative;
