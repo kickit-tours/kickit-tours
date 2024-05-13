@@ -43,7 +43,7 @@ h1 {
 
 h2 {
     font-size: 1.5em;
-    font-weight: 300;
+    font-weight: 500;
 }
 
 .site-container {
@@ -67,6 +67,16 @@ h2 {
     .site-container {
         margin: 1.5em auto;
         padding: 0em 2em;
+    }
+
+    h1 {
+        font-size: 1.6em;
+        font-weight: 500;
+    }
+    
+    h2 {
+        font-size: 1.2em;
+        font-weight: 500;
     }
 }
 
