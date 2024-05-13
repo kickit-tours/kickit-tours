@@ -54,12 +54,18 @@ iframe {
   }
 
   .site-container h1 {
-    font-size: 1.5em;
-    font-weight: 200;
+    font-size: 2em;
+    font-weight: 500;
   }
-  
+
+  .site-container h2 {
+    font-size: 1.5em;
+    font-weight: 300;
+  }
+
   @media only screen and (max-width: 768px) {
     .site-container {
+        margin: 1.5em auto;
         padding: 0em 2em;
     }
   }
