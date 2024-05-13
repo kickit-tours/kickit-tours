@@ -28,6 +28,8 @@ a {
 }
 
 .rect1 {
+  width: 70px;
+  height: 70px;
   transform: rotate(-15deg);
 }
 
@@ -141,6 +143,7 @@ a {
 @media only screen and (max-width: 768px) {
 
   .rect1 {
+    width: auto;
     height: 50;
   }
 
