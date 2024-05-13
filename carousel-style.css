@@ -47,11 +47,12 @@ h2 {
 }
 
 .site-container {
-    font: 1.6em/220% 'Montserrat';
+    font: 1.6em/230% 'Montserrat';
     font-weight: 200;
-    max-width: 800px;
+    max-width: 400px;
     margin: 3em auto;
     padding: 2em;
+    overflow: hidden;
 }
 
 .demo-title {
