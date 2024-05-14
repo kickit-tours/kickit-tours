@@ -171,8 +171,8 @@ h4 {
 
 .carousel-btn--prev-next {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  /* top: 50%; */
+  transform: translateY(-500%); /* -50% */
   transition: transform 0.1s ease-in-out;
 }
 
