@@ -1,7 +1,7 @@
 :root {
   --carousel-height: 350px;
   --carousel-radius: 0.5em;
-  --carousel-nav-btn-dim: 3em;
+  --carousel-nav-btn-dim: 1em;
   --carousel-page-nav-btn-dim: 0.5em;
   --carousel-caption-padding: 1em;
   --carousel-caption-color: #fff;
@@ -82,6 +82,11 @@ h2 {
         font-size: 1.2em;
         font-weight: 500;
     }
+    h3 {
+        font-size: 0.9em;
+        font-weight: 300;
+    }
+
 }
 
 .carousel-inner {
@@ -146,7 +151,7 @@ h2 {
 .carousel-btn {
   width: var(--carousel-nav-btn-dim);
   height: var(--carousel-nav-btn-dim);
-  font-size: 2rem;
+  font-size: 6rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -154,7 +159,7 @@ h2 {
   border-radius: 50%;
   cursor: pointer;
   color: var(--carousel-prev-next-btn-color);
-  background-color: var(--carousel-prev-next-btn-bg);
+  /* background-color: var(--carousel-prev-next-btn-bg); */
 }
 
 .carousel-btn--prev-next {
