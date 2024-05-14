@@ -3,14 +3,14 @@
   --carousel-radius: 0.5em;
   --carousel-nav-btn-dim: 3em;
   --carousel-page-nav-btn-dim: 0.5em;
-  --carousel-caption-padding: 2em;
+  --carousel-caption-padding: 1em;
   --carousel-caption-color: #fff;
   --carousel-caption-bg: linear-gradient(
     to bottom,
     transparent,
     hsl(0 0 0 / 65%) 80%
   );
-  --carousel-inner-spacing: 2em;
+  --carousel-inner-spacing: 1em;
   --carousel-prev-next-btn-bg: #fff;
   --carousel-prev-next-btn-color: #333;
   --carousel-pagination-margin: 1em;
@@ -38,17 +38,19 @@ iframe {
 }
 
 h1 {
+    font: 1.6em/230% 'Montserrat';
     font-size: 2em;
     font-weight: 500;
 }
 
 h2 {
+    font: 1.6em/200% 'Montserrat';
     font-size: 1.5em;
     font-weight: 500;
 }
 
 .site-container {
-    font: 1.6em/230% 'Montserrat';
+    font: 1.6em/180% 'Montserrat';
     font-weight: 200;
     max-width: 400px;
     margin: 3em auto;
