@@ -144,7 +144,7 @@ const JSCarousel = ({
       },
       ""
     );
-    carouselInner.appendChild(prevBtn);
+    carousel.appendChild(prevBtn); //carouselInner
 
     // Create and append next button.
     nextBtn = addElement(
@@ -155,7 +155,7 @@ const JSCarousel = ({
       },
       ""
     );
-    carouselInner.appendChild(nextBtn);
+    carousel.appendChild(nextBtn); //carouselInner
 
   };
 
