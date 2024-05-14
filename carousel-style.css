@@ -34,6 +34,7 @@ img,
 video,
 iframe {
   max-width: 100%;
+  overflow: hidden;
 }
 
 h1 {
@@ -82,7 +83,6 @@ h2 {
 }
 
 .carousel-inner {
-  overflow: hidden;
   position: relative;
   min-height: var(--carousel-height);
   border-radius: var(--carousel-radius);
