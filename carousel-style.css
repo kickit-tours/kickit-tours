@@ -42,11 +42,18 @@ h1 {
     font-size: 2em;
     font-weight: 500;
 }
-
 h2 {
     font: 1.6em/200% 'Montserrat';
     font-size: 1.5em;
     font-weight: 500;
+}
+h3 {
+    font-size: 1.2em;
+    font-weight: 400;
+}
+h4 {
+    font-size: 1.0em;
+    font-weight: 200;
 }
 
 .site-container {
@@ -116,6 +123,7 @@ h2 {
   position: relative;
   z-index: 5000;
   height: 100%;
+  width: 80%;
   overflow: hidden;
 }
 
