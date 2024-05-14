@@ -145,7 +145,7 @@ h2 {
 
 .carousel-btn {
   width: var(--carousel-nav-btn-dim);
-  height: var(--carousel-nav-btn-dim);
+  height: 5em; /* var(--carousel-nav-btn-dim); */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -159,7 +159,7 @@ h2 {
 .carousel-btn--prev-next {
   position: absolute;
   top: 50%;
-  transform: translateY(+50%); /* default -50% */
+  transform: translateY(-50%);
   transition: transform 0.1s ease-in-out;
 }
 
@@ -168,11 +168,11 @@ h2 {
 }
 
 .carousel-btn--prev {
-  left: var(--carousel-inner-spacing);
+  left: -var(--carousel-inner-spacing);
 }
 
 .carousel-btn--next {
-  right: var(--carousel-inner-spacing);
+  right: -var(--carousel-inner-spacing);
 }
 
 .carousel-pagination {
