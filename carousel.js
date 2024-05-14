@@ -139,10 +139,10 @@ const JSCarousel = ({
     prevBtn = addElement(
       "btn",
       {
-        class: "carousel-btn carousel-btn--prev-next carousel-btn--prev",
+        class: "bi bi-chevron-left carousel-btn carousel-btn--prev-next carousel-btn--prev",
         "aria-label": "Previous Slide",
       },
-      "<"
+      ""
     );
     carouselInner.appendChild(prevBtn);
 
@@ -153,7 +153,7 @@ const JSCarousel = ({
         class: "bi bi-chevron-right carousel-btn carousel-btn--prev-next carousel-btn--next",
         "aria-label": "Next Slide",
       },
-      "_"
+      ""
     );
     carouselInner.appendChild(nextBtn);
 

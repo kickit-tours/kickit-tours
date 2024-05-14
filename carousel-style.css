@@ -145,7 +145,8 @@ h2 {
 
 .carousel-btn {
   width: var(--carousel-nav-btn-dim);
-  height: 5var(--carousel-nav-btn-dim);
+  height: var(--carousel-nav-btn-dim);
+  font-size: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
