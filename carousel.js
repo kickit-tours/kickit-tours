@@ -150,10 +150,10 @@ const JSCarousel = ({
     nextBtn = addElement(
       "btn",
       {
-        class: "carousel-btn carousel-btn--prev-next carousel-btn--next",
+        class: "bi bi-chevron-right carousel-btn carousel-btn--prev-next carousel-btn--next",
         "aria-label": "Next Slide",
       },
-      ">"
+      "_"
     );
     carouselInner.appendChild(nextBtn);
 
