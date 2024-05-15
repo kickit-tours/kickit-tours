@@ -97,9 +97,7 @@ h4 {
 }
 
 .carousel-outer {
-  position: relative;
   padding: 0em 2em;
-  min-height: var(--carousel-height);
 }
 
 .carousel-inner {

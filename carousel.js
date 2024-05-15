@@ -94,7 +94,7 @@ const JSCarousel = ({
   const carouselOuter = addElement("div", {
     class: "carousel-outer",
   });
-  carousel.insertBefore(carouselOuter);
+  carousel.appendChild(carouselOuter);
     
   // Create a div for carousel inner content.
   const carouselInner = addElement("div", {
