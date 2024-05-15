@@ -17,13 +17,5 @@ function roundRect(id, x, y, w, h, radius, rotation, transX, transY)
   context.lineTo(x, y+radius);
   context.quadraticCurveTo(x, y, x+radius, y);
   context.fillStyle="#b4e1b3";
-//  context.fill();
-
-  canvas.addEventListener("mousemove", function(e) { 
-    var cRect = canvas.getBoundingClientRect();
-    var canvasX = Math.round(e.clientX - cRect.left);
-    var canvasY = Math.round(e.clientY - cRect.top);
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    context.fillText("X: "+canvasX+", Y: "+canvasY, 10, 20);
-});
+  context.fill();
 }
