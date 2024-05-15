@@ -3,13 +3,12 @@
   --carousel-radius: 0.5em;
   --carousel-nav-btn-dim: 1em;
   --carousel-page-nav-btn-dim: 0.1em;
-  --carousel-caption-padding: 1em;
+  --carousel-caption-padding: 3em;
   --carousel-caption-color: #fff;
---carousel-caption-bg: linear-gradient(
+  --carousel-caption-bg: linear-gradient(
     to bottom,
     transparent,
     rgba(0, 0, 0, 0.8)
-/*    hsl(0 0 0 / 65%) 80% */
   );
   --carousel-inner-spacing: 1em;
   --carousel-prev-next-btn-bg: #fff;
@@ -136,7 +135,7 @@ h4 {
 .slide-caption {
   width: 100%;
   position: absolute;
-  padding: var(--carousel-caption-padding);
+  padding: var(--carousel-caption-padding) 1em 1em;
   left: 0;
   bottom: 0;
   color: var(--carousel-caption-color);
@@ -183,7 +182,7 @@ h4 {
 
 .carousel-btn--prev-next {
   position: absolute;
-  top: 50%;
+  top: 45%;
   /* transform: translateY(-50%);  -50% */
   transition: transform 0.1s ease-in-out;
 }
