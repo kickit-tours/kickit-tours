@@ -103,6 +103,7 @@ h4 {
 .carousel-inner {
   position: relative;
   min-height: var(--carousel-height);
+  overflow: hidden;
 }
 
 .carousel-title {
@@ -215,6 +216,6 @@ h4 {
 }
 
 .carousel-pagination .carousel-btn--active {
-  transform: scale(1.5);
+  /*transform: scale(1.5); */
   background-color: var(--carousel-pagination-btn-active-bg);
 }
