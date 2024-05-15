@@ -94,13 +94,12 @@ const JSCarousel = ({
   const carouselOuter = addElement("div", {
     class: "carousel-outer",
   });
-  carousel.appendChild(carouselOuter);
     
   // Create a div for carousel inner content.
   const carouselInner = addElement("div", {
     class: "carousel-inner",
   });
-  carouselOuter.insertBefore(carouselInner, slides[0]);
+  carousel.insertBefore(carouselOuter, carouselInner, slides[0]);
 
     // If pagination is enabled, create and append pagination buttons.
     if (enablePagination) {
