@@ -28,11 +28,6 @@ a {
   border-bottom: 1px solid #d1d1d1;
 }
 
-#rect1 {
-  width: auto;
-  height: auto;
-}
-
 .navbar {
   display: flex;
   justify-content: space-between;
