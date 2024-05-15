@@ -59,7 +59,7 @@ h4 {
 .site-container {
     font: 1.6em/160% 'Montserrat';
     font-weight: 200;
-    max-width: 860px;
+    max-width: 760px;
     margin: 3em auto;
     padding: 2em;
     overflow: hidden;
@@ -113,7 +113,8 @@ h4 {
 }
 
 .slide {
-  max-width: 360px;
+  max-width: 370px;
+  padding-right: 2em;
   height: 100%;
   position: absolute;
   transition: transform 0.5s cubic-bezier(0.42, 0, 0.58, 1);
