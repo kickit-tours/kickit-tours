@@ -90,11 +90,17 @@ const JSCarousel = ({
   const tweakStructure = () => {
     carousel.setAttribute("tabindex", "0");
 
-    // Create a div for carousel inner content.
-    const carouselInner = addElement("div", {
-      class: "carousel-inner",
-    });
-    carousel.insertBefore(carouselInner, slides[0]);
+  // Create a div for carousel inner content.
+  const carouselOuter = addElement("div", {
+    class: "carousel-outer",
+  });
+  carousel.insertBefore(carouselOuter);
+    
+  // Create a div for carousel inner content.
+  const carouselInner = addElement("div", {
+    class: "carousel-inner",
+  });
+  carouselOuter.insertBefore(carouselInner, slides[0]);
 
     // If pagination is enabled, create and append pagination buttons.
     if (enablePagination) {

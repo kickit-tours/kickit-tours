@@ -96,6 +96,12 @@ h4 {
 
 }
 
+.carousel-outer {
+  position: relative;
+  padding: 0em 2em;
+  min-height: var(--carousel-height);
+}
+
 .carousel-inner {
   position: relative;
   min-height: var(--carousel-height);
@@ -116,7 +122,6 @@ h4 {
   padding: 0em 3em;
   height: 100%;
   position: absolute;
-  border-radius: var(--carousel-radius);
   transition: transform 0.5s cubic-bezier(0.42, 0, 0.58, 1);
 }
 
@@ -135,6 +140,8 @@ h4 {
   bottom: 0;
   color: var(--carousel-caption-color);
   background-image: var(--carousel-caption-bg);
+  border-bottom-left-radius: var(--carousel-radius);
+  border-bottom-right-radius: var(--carousel-radius);
 }
 
 .slide-caption a {
@@ -154,6 +161,7 @@ h4 {
 .slide img {
   width: 100%;
   object-fit: cover;
+  border-radius: var(--carousel-radius);
 }
 
 .carousel-btn {
