@@ -91,15 +91,10 @@ const JSCarousel = ({
     carousel.setAttribute("tabindex", "0");
 
   // Create a div for carousel inner content.
-  const carouselOuter = addElement("div", {
-    class: "carousel-outer",
-  });
-    
-  // Create a div for carousel inner content.
   const carouselInner = addElement("div", {
     class: "carousel-inner",
   });
-  carousel.insertBefore(carouselOuter, carouselInner, slides[0]);
+  carousel.insertBefore(carouselInner, slides[0]);
 
     // If pagination is enabled, create and append pagination buttons.
     if (enablePagination) {
