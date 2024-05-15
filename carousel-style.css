@@ -5,10 +5,11 @@
   --carousel-page-nav-btn-dim: 0.1em;
   --carousel-caption-padding: 1em;
   --carousel-caption-color: #fff;
-  --carousel-caption-bg: linear-gradient(
+--carousel-caption-bg: linear-gradient(
     to bottom,
     transparent,
-    hsl(0 0 0 / 65%) 80%
+    rgba(0, 0, 0, 0.8)
+/*    hsl(0 0 0 / 65%) 80% */
   );
   --carousel-inner-spacing: 1em;
   --carousel-prev-next-btn-bg: #fff;
