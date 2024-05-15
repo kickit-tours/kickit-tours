@@ -195,8 +195,9 @@ a {
   }
   
   .title {
-    font-size: large;
-    padding-top: 20px;
+    font-size: 24px;
+    font-weight: 400;
+    padding: 20px 40px 0;
   }
   
 }
