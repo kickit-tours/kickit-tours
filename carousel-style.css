@@ -113,8 +113,8 @@ h4 {
 }
 
 .slide {
-  width: 370px;
-  padding: 0em 1em;
+  width: 400px;
+  padding: 0em 3em;
   height: 100%;
   position: absolute;
   transition: transform 0.5s cubic-bezier(0.42, 0, 0.58, 1);
@@ -157,8 +157,8 @@ h4 {
 }
 
 .carousel-btn {
-  width: var(--carousel-nav-btn-dim)/2;
-  height: var(--carousel-nav-btn-dim);
+  width: 30px; /* var(--carousel-nav-btn-dim); */
+  height: 60px; /* var(--carousel-nav-btn-dim); */
   font-size: 6rem;
   display: flex;
   align-items: center;
