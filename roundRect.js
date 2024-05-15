@@ -5,8 +5,8 @@ function roundRect(id, x, y, w, h, radius, rotation, transX, transY)
   var r = x + w;
   var b = y + h;
   context.beginPath();
-  //context.rotate(rotation * Math.PI / 180);
-  //context.translate(transX, transY);
+  context.rotate(rotation * Math.PI / 180);
+  context.translate(transX, transY);
   context.moveTo(x+radius, y);
   context.lineTo(r-radius, y);
   context.quadraticCurveTo(r, y, r, y+radius);
@@ -17,7 +17,7 @@ function roundRect(id, x, y, w, h, radius, rotation, transX, transY)
   context.lineTo(x, y+radius);
   context.quadraticCurveTo(x, y, x+radius, y);
   context.fillStyle="#b4e1b3";
-  context.fill();
+//  context.fill();
 
   canvas.addEventListener("mousemove", function(e) { 
     var cRect = canvas.getBoundingClientRect();
