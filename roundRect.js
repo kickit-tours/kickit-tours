@@ -4,11 +4,9 @@ function roundRect(id, x, y, w, h, radius, rotation, transX, transY)
   var context = canvas.getContext("2d");
   var r = x + w;
   var b = y + h;
-  context.font = "30px Arial";
-  context.fillText("Hello", 10, 30);
   context.beginPath();
-  context.rotate(rotation * Math.PI / 180);
-//  context.translate(transX, transY);
+  //context.rotate(rotation * Math.PI / 180);
+  //context.translate(transX, transY);
   context.moveTo(x+radius, y);
   context.lineTo(r-radius, y);
   context.quadraticCurveTo(r, y, r, y+radius);

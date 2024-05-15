@@ -29,8 +29,8 @@ a {
 }
 
 #rect1 {
-  width: 60px;
-  height: 60px;
+  width: auto;
+  height: auto;
 }
 
 .navbar {
