@@ -139,7 +139,7 @@ const JSCarousel = ({
     prevBtn = addElement(
       "btn",
       {
-        class: "bi bi-chevron-left carousel-btn carousel-btn--prev-next carousel-btn--prev",
+        class: "carousel-btn carousel-btn--prev-next carousel-btn--prev bi bi-chevron-left",
         "aria-label": "Previous Slide",
       },
       ""
@@ -150,7 +150,7 @@ const JSCarousel = ({
     nextBtn = addElement(
       "btn",
       {
-        class: "bi bi-chevron-right carousel-btn carousel-btn--prev-next carousel-btn--next",
+        class: "carousel-btn carousel-btn--prev-next carousel-btn--next bi bi-chevron-right",
         "aria-label": "Next Slide",
       },
       ""

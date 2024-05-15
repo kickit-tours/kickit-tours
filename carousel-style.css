@@ -59,9 +59,9 @@ h4 {
 .site-container {
     font: 1.6em/160% 'Montserrat';
     font-weight: 200;
-    max-width: 760px;
+    max-width: 800px;
     margin: 3em auto;
-    padding: 2em;
+    padding: 0em;
     overflow: hidden;
 }
 
@@ -113,8 +113,8 @@ h4 {
 }
 
 .slide {
-  max-width: 370px;
-  padding-right: 2em;
+  width: 370px;
+  padding: 0em 1em;
   height: 100%;
   position: absolute;
   transition: transform 0.5s cubic-bezier(0.42, 0, 0.58, 1);
@@ -157,7 +157,7 @@ h4 {
 }
 
 .carousel-btn {
-  width: var(--carousel-nav-btn-dim);
+  width: var(--carousel-nav-btn-dim)/2;
   height: var(--carousel-nav-btn-dim);
   font-size: 6rem;
   display: flex;
@@ -177,9 +177,11 @@ h4 {
   transition: transform 0.1s ease-in-out;
 }
 
+/*
 .carousel-btn--prev-next:hover {
   transform: translateY(-50%) scale(1.2);
 }
+*/
 
 .carousel-btn--prev {
   left: 0; /*var(--carousel-inner-spacing); */
