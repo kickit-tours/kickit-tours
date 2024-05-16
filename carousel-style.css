@@ -169,11 +169,11 @@ h4 {
 */
 
 .carousel-btn--prev {
-  left: var(--carousel-inner-spacing);
+  left: -var(--carousel-inner-spacing);
 }
 
 .carousel-btn--next {
-  right: var(--carousel-inner-spacing);
+  right: -var(--carousel-inner-spacing);
 }
 
 .carousel-pagination {
@@ -225,6 +225,14 @@ h4 {
     font-size: 3rem;
   }
 
+  .carousel-btn--prev {
+    left: var(--carousel-inner-spacing);
+  }
+  
+  .carousel-btn--next {
+    right: var(--carousel-inner-spacing);
+  }
+  
   h1 {
       font-size: 1.6em;
       font-weight: 500;
