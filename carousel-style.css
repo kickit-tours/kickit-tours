@@ -10,7 +10,7 @@
     transparent,
     rgba(0, 0, 0, 0.8)
   );
-  --carousel-inner-spacing: 1em;
+  --carousel-inner-spacing: 0.2em;
   --carousel-prev-next-btn-bg: #fff;
   --carousel-prev-next-btn-color: #333;
   --carousel-pagination-margin: 1em;
@@ -94,11 +94,11 @@ h4 {
       font-size: 3rem;
     }
 
-    .carousel-btn-prev {
+    .carousel-btn--prev {
       padding-right: 20%;
       background-color: #888;
     }
-
+    
     h1 {
         font-size: 1.6em;
         font-weight: 500;
@@ -189,7 +189,6 @@ h4 {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 0.2em;
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -212,11 +211,11 @@ h4 {
 */
 
 .carousel-btn--prev {
-  left: 0; /*var(--carousel-inner-spacing); */
+  left: var(--carousel-inner-spacing);
 }
 
 .carousel-btn--next {
-  right: 0; /* var(--carousel-inner-spacing); */
+  right: var(--carousel-inner-spacing);
 }
 
 .carousel-pagination {

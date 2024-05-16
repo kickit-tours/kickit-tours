@@ -139,7 +139,7 @@ const JSCarousel = ({
     prevBtn = addElement(
       "btn",
       {
-        class: "carousel-btn carousel-btn--prev-next carousel-btn--prev carousel-btn-prev bi bi-chevron-left",
+        class: "carousel-btn carousel-btn--prev-next carousel-btn--prev bi bi-chevron-left",
         "aria-label": "Previous Slide",
       },
       ""
