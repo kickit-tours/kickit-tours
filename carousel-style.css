@@ -1,6 +1,6 @@
 :root {
   --carousel-height: 350px;
-  --carousel-radius: 0.5em;
+  --carousel-radius: 1em;
   --carousel-nav-btn-dim: 1em;
   --carousel-page-nav-btn-dim: 0.1em;
   --carousel-caption-padding: 3em;
@@ -95,7 +95,8 @@ h4 {
 .slide {
   width: 400px;
   height: 100%;
-  padding: 0em 3em;
+  padding-left: 3em;
+  padding-right: 3em;
   position: absolute;
   transition: transform 0.5s cubic-bezier(0.42, 0, 0.58, 1);
 }
@@ -208,8 +209,9 @@ h4 {
   }
   
   .slide {
-    width: 100%;
-    padding: 0em 2em;
+    width: 90%;
+    padding-left: 1em;
+    padding-right: 0;
   }
 
   .slide img {
