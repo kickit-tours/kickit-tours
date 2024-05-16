@@ -10,8 +10,8 @@
     transparent,
     rgba(0, 0, 0, 0.8)
   );
-  --carousel-inner-spacing: 0.3em;
-  --carousel-prev-next-btn-bg: rgba(255,255,255, 0.5); /* #fff; */
+  --carousel-inner-spacing: 1em;
+  --carousel-prev-next-btn-bg: rgba(255,255,255, 0.8); /* #fff; */
   --carousel-prev-next-btn-color: #333;
   --carousel-pagination-margin: 1em;
   --carousel-pagination-gap: 0.75em;
@@ -216,13 +216,9 @@ h4 {
     width: 100%;
   }
 
-  .carousel-title {
-    margin-left: 2.5em;
-  }
-
   .carousel-btn {
     width: 30px; /* var(--carousel-nav-btn-dim); */
-    height: 60px; /* var(--carousel-nav-btn-dim); */
+    height: 30px; /* var(--carousel-nav-btn-dim); */
     font-size: 3rem;
   }
 
