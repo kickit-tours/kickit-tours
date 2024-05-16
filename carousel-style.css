@@ -212,7 +212,7 @@ h4 {
   }
 
   .slide img {
-    max-width: 80%;
+    width: 100%;
   }
 
   .carousel-btn {
