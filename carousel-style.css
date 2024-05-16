@@ -59,12 +59,14 @@ h4 {
     font: 1.6em/160% 'Montserrat';
     font-weight: 200;
     max-width: 800px;
-    margin: 3em auto;
+    margin: 1.5em 3em auto;
     padding: 0em;
     overflow: hidden;
 }
 
 .demo-title {
+  color: #fff;
+  .highlightme { background-color:#b4e1b3; }
     text-align: center;
     margin-bottom: 0.5em;
 }
@@ -106,6 +108,7 @@ h4 {
 }
 
 .carousel-title {
+  color: #536B52;
   margin-top: 0;
   margin-left: 2em;
   margin-bottom: 0.5em;
