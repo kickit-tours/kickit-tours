@@ -59,7 +59,7 @@ h4 {
     font: 1.6em/160% 'Montserrat';
     font-weight: 200;
     max-width: 800px;
-    margin: 1.5em 3em auto;
+    margin: auto;
     padding: 0em;
     overflow: hidden;
 }
@@ -67,7 +67,7 @@ h4 {
 .demo-title {
   color: #fff;
   text-align: center;
-  margin-bottom: 0.5em;
+  margin: 1.5em;
 }
 
 .carousel + .carousel {
@@ -76,10 +76,14 @@ h4 {
 
 @media only screen and (max-width: 768px) {
     .site-container {
-        margin: 1.5em 1em auto;
+        margin: 1.5em auto;
         padding: 0em;
     }
 
+    .demo-title {
+      margin: 1em;
+    }
+    
     .slide {
       width: 80%;
     }
