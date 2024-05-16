@@ -92,13 +92,11 @@ h4 {
       width: 30px; /* var(--carousel-nav-btn-dim); */
       height: 60px; /* var(--carousel-nav-btn-dim); */
       font-size: 3rem;
-      margin: 0 0.2m;
     }
 
     .carousel-btn-prev {
-      padding-right: 10%;
+      padding-right: 20%;
       background-color: #888;
-
     }
 
     h1 {
@@ -191,6 +189,7 @@ h4 {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 0.2em;
   border: none;
   border-radius: 50%;
   cursor: pointer;
