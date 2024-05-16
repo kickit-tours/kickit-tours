@@ -153,11 +153,11 @@ a {
 }
 
 .ulist {
-  padding: 2em;
+  padding: 2em 3em;
 }
 
 li.a {
-  list-style: disc inside;
+  list-style: disc outside;
 }
 
 
