@@ -88,6 +88,17 @@ h4 {
       width: 80%;
     }
 
+    .carousel-btn {
+      width: 30px; /* var(--carousel-nav-btn-dim); */
+      height: 60px; /* var(--carousel-nav-btn-dim); */
+      font-size: 3rem;
+    }
+
+    .carousel-btn-prev {
+      width: 10%;
+      background-color: #888;
+    }
+
     h1 {
         font-size: 1.6em;
         font-weight: 500;
@@ -189,6 +200,7 @@ h4 {
 .carousel-btn--prev-next {
   position: absolute;
   top: 45%;
+  margin: 0 0.2m;
   /* transform: translateY(-50%);  -50% */
   transition: transform 0.1s ease-in-out;
 }
