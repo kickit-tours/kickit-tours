@@ -156,8 +156,8 @@ a {
   padding: 2em;
 }
 
-li.a {
-  list-style-type: circle;
+ul.a {
+  list-style: circle;
 }
 
 
