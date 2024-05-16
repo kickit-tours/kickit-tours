@@ -153,10 +153,10 @@ a {
 }
 
 .ulist {
-  padding: 2em 1em;
+  padding: 2em;
 }
 
-ul.a {
+li.a {
   list-style-type: circle;
 }
 
