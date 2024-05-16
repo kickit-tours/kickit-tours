@@ -21,7 +21,6 @@ const JSCarousel = ({
   carouselSelector,
   slideSelector,
   enablePagination = true,
-  enablePrevNextButtons = true,
   enableAutoplay = true,
   autoplayInterval = 4000,
 }) => {
@@ -136,7 +135,6 @@ const JSCarousel = ({
     }
   });
 
-  if (enablePrevNextButtons) {
     // Create and append previous button.
     prevBtn = addElement(
       "btn",
@@ -158,7 +156,7 @@ const JSCarousel = ({
       ""
     );
     carouselInner.appendChild(nextBtn); //carouselInner
-  }
+  
 
   };
 

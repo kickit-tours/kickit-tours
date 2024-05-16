@@ -219,6 +219,7 @@ h4 {
   }
 
   .carousel-btn {
+    display: none;
     width: 40px; /* var(--carousel-nav-btn-dim); */
     height: 40px; /* var(--carousel-nav-btn-dim); */
     font-size: 3rem;
