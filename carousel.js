@@ -21,6 +21,7 @@ const JSCarousel = ({
   carouselSelector,
   slideSelector,
   enablePagination = true,
+  enablePrevNextButtons = true,
   enableAutoplay = true,
   autoplayInterval = 4000,
 }) => {
@@ -96,45 +97,46 @@ const JSCarousel = ({
   });
   carousel.insertBefore(carouselInner, slides[0]);
 
-    // If pagination is enabled, create and append pagination buttons.
-    if (enablePagination) {
-      paginationContainer = addElement("nav", {
-        class: "carousel-pagination",
-        role: "tablist",
-      });
-      carousel.appendChild(paginationContainer);
-    }
-
-    /*
-     * Move slides from the carousel element to the carousel inner
-     * container to facilitate alignment.
-     */
-    slides.forEach((slide, index) => {
-      carouselInner.appendChild(slide);
-      slide.style.transform = `translateX(${index * 100}%)`;
-      if (enablePagination) {
-        const paginationBtn = addElement(
-          "btn",
-          {
-            class: `carousel-btn caroursel-btn--${index + 1}`,
-            role: "tab",
-          },
-          `${index + 1}`
-        );
-
-        paginationContainer.appendChild(paginationBtn);
-
-        if (index === 0) {
-          paginationBtn.classList.add("carousel-btn--active");
-          paginationBtn.setAttribute("aria-selected", true);
-        }
-
-        paginationBtn.addEventListener("click", () => {
-          handlePaginationBtnClick(index);
-        });
-      }
+  // If pagination is enabled, create and append pagination buttons.
+  if (enablePagination) {
+    paginationContainer = addElement("nav", {
+      class: "carousel-pagination",
+      role: "tablist",
     });
+    carousel.appendChild(paginationContainer);
+  }
 
+  /*
+    * Move slides from the carousel element to the carousel inner
+    * container to facilitate alignment.
+    */
+  slides.forEach((slide, index) => {
+    carouselInner.appendChild(slide);
+    slide.style.transform = `translateX(${index * 100}%)`;
+    if (enablePagination) {
+      const paginationBtn = addElement(
+        "btn",
+        {
+          class: `carousel-btn caroursel-btn--${index + 1}`,
+          role: "tab",
+        },
+        `${index + 1}`
+      );
+
+      paginationContainer.appendChild(paginationBtn);
+
+      if (index === 0) {
+        paginationBtn.classList.add("carousel-btn--active");
+        paginationBtn.setAttribute("aria-selected", true);
+      }
+
+      paginationBtn.addEventListener("click", () => {
+        handlePaginationBtnClick(index);
+      });
+    }
+  });
+
+  if (enablePrevNextButtons) {
     // Create and append previous button.
     prevBtn = addElement(
       "btn",
@@ -156,6 +158,7 @@ const JSCarousel = ({
       ""
     );
     carouselInner.appendChild(nextBtn); //carouselInner
+  }
 
   };
 
