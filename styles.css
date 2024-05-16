@@ -157,7 +157,7 @@ a {
 }
 
 li.a {
-  list-style: circle;
+  list-style: disc inside;
 }
 
 
