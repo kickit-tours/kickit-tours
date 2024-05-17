@@ -176,7 +176,6 @@ li.a {
   justify-content: center; /* Center children elements vertically */
   align-items: center; /* Center children elements horizontally */
   text-align: center; /* Center text content */
-  background-color: #20CE88;
   border-bottom-left-radius: 2em;
   border-bottom-right-radius: 2em;
 }
