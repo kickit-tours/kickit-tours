@@ -132,13 +132,64 @@
       <div class="ribbon" style="background-color:#20CE88;">
         <img style="width: 67px; height: 67px;" src="mountain-icon.png">
           <p>Premium</p>
-          <p>Tagesauflug</p>
+          <p>Tagesausflug</p>
       </div>
       <div class="ribbon" style="background-color:#b4e1b3;">
         <img style="width: 67px; height: 67px; padding: 16px 0;" src="Kickit-logo.png">
         <p>Gute Kondition</p>
         <p>erforderlich</p>
       </div> 
+  </div>
+
+  <div class="site-container">
+    <div
+      id="carousel-2"
+      class="carousel"
+      role="region"
+      aria-labelledby="carousel-1-title"
+    >
+      <h2 class="carousel-title" id="carousel-1-title">
+        Tagestouren
+      </h2>
+      <div
+        class="slide"
+        role="tabpanel"
+        aria-labelledby="carousel-1-slide-1-title"
+      >
+        <div class="slide-content">
+          <div class="slide-caption">
+            <h3 id="carousel-1-slide-1-title">Stadttour Dresden</h3>
+            <h4>Altstadt - Großer Garten - Neustadt</h4>
+            <h4>2,5 St. 18,5 Km € 15</h4>
+          </div>
+
+          <img
+            src="Tour Dresden.jpeg"
+            alt="Stadttour Dresden"
+            width="250"
+            height="350"
+          />
+        </div>
+      </div>
+
+      <div
+        class="slide"
+        role="tabpanel"
+        aria-labelledby="carousel-1-slide-2-title"
+      >
+        <div class="slide-content">
+          <div class="slide-caption">
+            <h3 id="carousel-1-slide-2-title">Graupa - Schloss Pillnitz</h3>
+            <h4>2 St. 11,5 Km € 10</h4>
+          </div>
+          <img
+            src="Tour Pillnitz.jpeg"
+            alt="Graupa - Schloss Pillnitz"
+            width="250"
+            height="350"
+          />
+        </div>
+      </div>
   </div>
 
   <div class="ulist">
@@ -168,6 +219,16 @@
       });
 
       carousel1.create();
+
+      const carousel2 = JSCarousel({
+        carouselSelector: "#carousel-2",
+        slideSelector: ".slide",
+        enablePagination: true,
+        autoplayInterval: 8000,
+      });
+
+      carousel1.create();
+
   </script>
 
 </body>
