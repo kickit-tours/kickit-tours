@@ -170,11 +170,11 @@ h4 {
 */
 
 .carousel-btn--prev {
-  left: -var(--carousel-inner-spacing);
+  left: 0; /* var(--carousel-inner-spacing); */
 }
 
 .carousel-btn--next {
-  right: -var(--carousel-inner-spacing);
+  right: 0; /*var(--carousel-inner-spacing); */
 }
 
 .carousel-pagination {
