@@ -161,12 +161,13 @@ li.a {
 }
 
 .section {
-  display: flex;
-  justify-content: center;
   padding: 2em 0;
 }
 
 .ribbon {
+  max-width: 160px;
+  display: flex;
+  justify-content: center;
   background-color: #20CE88;
   border-bottom-left-radius: 2em;
   border-bottom-right-radius: 2em;
