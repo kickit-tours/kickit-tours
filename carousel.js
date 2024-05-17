@@ -261,41 +261,11 @@ const JSCarousel = ({
     event.preventDefault();
   };
 
-  var initialX = null;
-
-  const startTouch = (event) => {
-    initialX = event.touches[0].clientX;
-    console.log("touch start"), initialX;
-
-  };
-
-  const moveTouch = (event) => {
-    if (initialX === null) {
-      return;
-    }
-
-    var currentX = e.touches[0].clientX;
-    var diffX = initialX - currentX;
-  
-    if (Math.abs(diffX) > Math.abs(diffY)) {
-      // sliding horizontally
-      if (diffX > 0) {
-        // swiped left
-        console.log("swiped left");
-      } else {
-        // swiped right
-        console.log("swiped right");
-      }  
-    } 
-  };
-
   // Attach event listeners to relevant elements.
   const attachEventListeners = () => {
     prevBtn.addEventListener("click", handlePrevBtnClick);
     nextBtn.addEventListener("click", handleNextBtnClick);
     carousel.addEventListener("keydown", handleKeyboardNav);
-    carousel.addEventListener("touchstart", startTouch, false);
-    carousel.addEventListener("touchmove", moveTouch, false);
 
     if (enableAutoplay && autoplayInterval !== null) {
       carousel.addEventListener("mouseenter", handleMouseEnter);
