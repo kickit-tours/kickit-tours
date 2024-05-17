@@ -265,6 +265,8 @@ const JSCarousel = ({
 
   const startTouch = (event) => {
     initialX = event.touches[0].clientX;
+    console.log("touch start"), initialX;
+
   };
 
   const moveTouch = (event) => {
@@ -292,8 +294,8 @@ const JSCarousel = ({
     prevBtn.addEventListener("click", handlePrevBtnClick);
     nextBtn.addEventListener("click", handleNextBtnClick);
     carousel.addEventListener("keydown", handleKeyboardNav);
-    carousel.addEventListener("touchstart", startTouch, false);
-    carousel.addEventListener("touchmove", moveTouch, false);
+    slides.addEventListener("touchstart", startTouch, false);
+    slides.addEventListener("touchmove", moveTouch, false);
 
     if (enableAutoplay && autoplayInterval !== null) {
       carousel.addEventListener("mouseenter", handleMouseEnter);
