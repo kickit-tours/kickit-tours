@@ -160,19 +160,27 @@ li.a {
   list-style: disc inside;
 }
 
-.section {
+..section {
+  display: flex;
+  justify-content: center;
   padding: 2em 0;
 }
 
 .ribbon {
-  max-width: 160px;
-  height: 100px;
+  width: 160px;
+  height: 110px;
+  margin: 0.5em;
+  padding: 1em;
   display: flex;
-  justify-content: center;
+  flex-direction: column; /* Stack children elements vertically */
+  justify-content: center; /* Center children elements vertically */
+  align-items: center; /* Center children elements horizontally */
+  text-align: center; /* Center text content */
   background-color: #20CE88;
   border-bottom-left-radius: 2em;
   border-bottom-right-radius: 2em;
 }
+
 
 @media only screen and (max-width: 768px) {
 
