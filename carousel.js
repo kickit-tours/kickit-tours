@@ -294,8 +294,8 @@ const JSCarousel = ({
     prevBtn.addEventListener("click", handlePrevBtnClick);
     nextBtn.addEventListener("click", handleNextBtnClick);
     carousel.addEventListener("keydown", handleKeyboardNav);
-    slides.addEventListener("touchstart", startTouch, false);
-    slides.addEventListener("touchmove", moveTouch, false);
+    carousel.addEventListener("touchstart", startTouch, false);
+    carousel.addEventListener("touchmove", moveTouch, false);
 
     if (enableAutoplay && autoplayInterval !== null) {
       carousel.addEventListener("mouseenter", handleMouseEnter);
