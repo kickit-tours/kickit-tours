@@ -166,6 +166,7 @@ li.a {
 
 .ribbon {
   max-width: 160px;
+  height: 100px;
   display: flex;
   justify-content: center;
   background-color: #20CE88;
