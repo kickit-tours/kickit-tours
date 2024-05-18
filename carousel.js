@@ -22,7 +22,7 @@ const JSCarousel = ({
   slideSelector,
   enablePagination = true,
   enableAutoplay = true,
-  autoplayInterval = 4000,
+  autoplayInterval = 2000,
 }) => {
   /*
    * Initialize variables to keep track of carousel state and
@@ -90,69 +90,61 @@ const JSCarousel = ({
   const tweakStructure = () => {
     carousel.setAttribute("tabindex", "0");
 
-  // Create a div for carousel inner content.
-  const carouselInner = addElement("div", {
-    class: "carousel-inner",
-  });
-  carousel.insertBefore(carouselInner, slides[0]);
-
-  // If pagination is enabled, create and append pagination buttons.
-  if (enablePagination) {
-    paginationContainer = addElement("nav", {
-      class: "carousel-pagination",
-      role: "tablist",
+    // Create a div for carousel inner content.
+    const carouselInner = addElement("div", {
+      class: "carousel-inner",
     });
-    carousel.appendChild(paginationContainer);
-  }
+    carousel.insertBefore(carouselInner, slides[0]);
 
-  /*
-    * Move slides from the carousel element to the carousel inner
-    * container to facilitate alignment.
-    */
-  slides.forEach((slide, i) => {
-    carouselInner.appendChild(slide);
-    slide.style.transform = `translateX(${i * 100}%)`;
-
+    // If pagination is enabled, create and append pagination buttons.
     if (enablePagination) {
-      const paginationBtn = addElement(
-        "btn",
-        {
-          class: `carousel-btn caroursel-btn--${index + 1}`,
-          role: "tab",
-        },
-        `${index + 1}`
-      );
-
-      paginationContainer.appendChild(paginationBtn);
-
-      if (index === 0) {
-        paginationBtn.classList.add("carousel-btn--active");
-        paginationBtn.setAttribute("aria-selected", true);
-      }
-
-      paginationBtn.addEventListener("click", () => {
-        handlePaginationBtnClick(index);
+      paginationContainer = addElement("nav", {
+        class: "carousel-pagination",
+        role: "tablist",
       });
+      carousel.appendChild(paginationContainer);
     }
-  });
 
-  // Get the first element
-  let firstElement = slides[0];
+    /*
+     * Move slides from the carousel element to the carousel inner
+     * container to facilitate alignment.
+     */
+    slides.forEach((slide, index) => {
+      carouselInner.appendChild(slide);
+      slide.style.transform = `translateX(${index * 100}%)`;
+      if (enablePagination) {
+        const paginationBtn = addElement(
+          "btn",
+          {
+            class: `carousel-btn caroursel-btn--${index + 1}`,
+            role: "tab",
+          },
+          `${index + 1}`
+        );
 
-  // Append the first element to the end of the array
-  slides.push(firstElement);
+        paginationContainer.appendChild(paginationBtn);
 
+        if (index === 0) {
+          paginationBtn.classList.add("carousel-btn--active");
+          paginationBtn.setAttribute("aria-selected", true);
+        }
+
+        paginationBtn.addEventListener("click", () => {
+          handlePaginationBtnClick(index);
+        });
+      }
+    });
 
     // Create and append previous button.
     prevBtn = addElement(
       "btn",
       {
-        class: "carousel-btn carousel-btn--prev-next carousel-btn--prev bi bi-chevron-left",
+        class: "carousel-btn carousel-btn--prev-next carousel-btn--prev  bi bi-chevron-left",
         "aria-label": "Previous Slide",
       },
       ""
     );
-    carouselInner.appendChild(prevBtn); //carouselInner
+    carouselInner.appendChild(prevBtn);
 
     // Create and append next button.
     nextBtn = addElement(
@@ -163,8 +155,7 @@ const JSCarousel = ({
       },
       ""
     );
-    carouselInner.appendChild(nextBtn); //carouselInner
-  
+    carouselInner.appendChild(nextBtn);
 
   };
 
@@ -206,14 +197,10 @@ const JSCarousel = ({
 
   // Move slide left and right based on direction provided.
   const moveSlide = (direction) => {
-    var newSlideIndex = currentSlideIndex;
-
-    if (direction === "next") {
-      newSlideIndex = (currentSlideIndex + 1) % slides.length
-    } else {
-      newSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
-    }
-
+    const newSlideIndex =
+      direction === "next"
+        ? (currentSlideIndex + 1) % slides.length
+        : (currentSlideIndex - 1 + slides.length) % slides.length;
     currentSlideIndex = newSlideIndex;
     updateCarouselState();
   };
