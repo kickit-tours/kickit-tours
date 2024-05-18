@@ -43,7 +43,7 @@ const JSCarousel = ({
   }
 
   // Find all slides within the carousel
-  const slides = carousel.querySelectorAll(slideSelector);
+  var slides = carousel.querySelectorAll(slideSelector);
 
   // If no slides are found, log an error and exit.
   if (!slides.length) {
@@ -135,12 +135,6 @@ const JSCarousel = ({
       }
     });
 
-    // Get the first element
-    let firstSlide = slides[0];
-    // Append the first element to the end of the array
-    slides.push(firstSlide);
-    slides[slides.length-1].style.transform = `translateX(${slides.length * 100}%)`;
-
     // Create and append previous button.
     prevBtn = addElement(
       "btn",
@@ -203,6 +197,12 @@ const JSCarousel = ({
 
   // Move slide left and right based on direction provided.
   const moveSlide = (direction) => {
+    if (direction === "next") {
+      slides[0].style.transformDuration = '0s';
+      slides[0].style.transform = `translateX(${100 * (slides.length)}%)`;
+      slides[0].style.transformDuration = '0.5s';
+    }
+
     const newSlideIndex =
       direction === "next"
         ? (currentSlideIndex + 1) % slides.length
