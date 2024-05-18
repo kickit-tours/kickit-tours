@@ -160,6 +160,10 @@ li.a {
   list-style: disc inside;
 }
 
+li.b {
+  list-style: none inside;
+}
+
 .section {
   display: flex;
   justify-content: center;
@@ -168,8 +172,8 @@ li.a {
 }
 
 .ribbon {
-  width: 150px;
-  height: 100px;
+  width: 140px;
+  height: 130px;
   margin: 0.5em;
   padding: 1em;
   display: flex;

@@ -112,6 +112,7 @@ const JSCarousel = ({
     slides.forEach((slide, index) => {
       carouselInner.appendChild(slide);
       slide.style.transform = `translateX(${index * 100}%)`;
+      
       if (enablePagination) {
         const paginationBtn = addElement(
           "btn",
