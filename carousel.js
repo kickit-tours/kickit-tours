@@ -113,11 +113,6 @@ const JSCarousel = ({
       carouselInner.appendChild(slide);
       slide.style.transform = `translateX(${index * 100}%)`;
 
-      let computedStyle = window.getComputedStyle(slide);
-      let computedLeftValue = computedStyle.getPropertyValue('left');
-      let numericLeftValue = parseFloat(computedLeftValue);
-      console.log("Current X position:", numericLeftValue);
-
       if (enablePagination) {
         const paginationBtn = addElement(
           "btn",
@@ -205,7 +200,7 @@ const JSCarousel = ({
   const moveSlide = (direction) => {
     if (direction === "next") {
 //      console.log("Next");
-//      slides[0].style.left = `${(slides.length-1) * 100}%`;
+        slides[0].style.left = `${(1) * 50}%`;
     }
 
     const newSlideIndex =
