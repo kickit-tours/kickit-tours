@@ -25,7 +25,7 @@ if (isSafariOniOS()) {
 video.addEventListener('loadeddata', () => {
     console.log('Video loaded and ready to play');
     if (video.readyState >= 2) { // Ensure video is ready
-    video.playbackRate = 3.0;
+    video.playbackRate = 1.4;
     console.log(`Playback rate set to ${rate}`);
     } else {
     console.log('Video not ready');
