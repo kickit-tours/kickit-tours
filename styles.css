@@ -153,9 +153,9 @@ a {
 }
 
 .ulist {
-  padding: 2em 3em;
-  display: flex;
-  align-items: center; /* Center children elements horizontally */
+  width: 60%;
+  padding: 2em 0 2em;
+  margin: 0 auto; /* This centers the div horizontally */
 }
 
 li.a {
