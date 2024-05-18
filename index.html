@@ -12,7 +12,7 @@
 
 </head>
 
-<header id="header" class="header">
+<header id="main-header" class="header" tabindex="-1"> 
   <nav class="navbar">
 
       <a href="#" class="nav-link">
@@ -243,12 +243,12 @@
       carousel2.create();
 
       document.addEventListener('DOMContentLoaded', (event) => {
-        const headerElement = document.getElementById('header');
+        const headerElement = document.getElementById('main-header');
         if (headerElement) {
             headerElement.focus();
         }
       });
-      
+
   </script>
 
 </body>
