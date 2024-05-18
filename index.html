@@ -247,6 +247,17 @@
         if (headerElement) {
             headerElement.focus();
         }
+
+        // Add smooth scrolling to anchor links
+        const navLink = document.querySelector('.nav-link');
+        navLink.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default anchor click behavior
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
       });
 
   </script>
