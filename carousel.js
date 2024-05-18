@@ -208,8 +208,6 @@ const JSCarousel = ({
   const moveSlide = (direction) => {
     var newSlideIndex = currentSlideIndex;
 
-    slides[currentSlideIndex].style.transform = `translateX(${(slides.length) * 100}%)`;
-
     if (direction === "next") {
       newSlideIndex = (currentSlideIndex + 1) % slides.length
     } else {
