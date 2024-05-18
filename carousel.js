@@ -135,6 +135,12 @@ const JSCarousel = ({
       }
     });
 
+    // Get the first element
+    let firstSlide = slides[0];
+    firstSlide.style.transform = `translateX(${slides.length * 100}%)`;
+    // Append the first element to the end of the array
+    slides.push(firstSlide);
+
     // Create and append previous button.
     prevBtn = addElement(
       "btn",
