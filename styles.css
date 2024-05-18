@@ -154,10 +154,15 @@ a {
 
 .ulist {
   padding: 2em 3em;
+  display: flex;
+  align-items: center; /* Center children elements horizontally */
 }
 
 li.a {
   list-style: disc inside;
+}
+li.a::marker {
+  color: #20CE88;
 }
 
 li.b {
