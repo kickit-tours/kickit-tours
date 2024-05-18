@@ -21,7 +21,7 @@ const JSCarousel = ({
   carouselSelector,
   slideSelector,
   enablePagination = true,
-  enableAutoplay = true,
+  enableAutoplay = false,
   autoplayInterval = 4000,
 }) => {
   /*
