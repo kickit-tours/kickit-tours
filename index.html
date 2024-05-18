@@ -124,6 +124,96 @@
           />
         </div>
 
+        <div
+        id="carousel-2"
+        class="carousel"
+        role="region"
+        aria-labelledby="carousel-1-title"
+      >
+        <h2 class="carousel-title" id="carousel-2-title">Delicious food</h2>
+        <p class="carousel-description">
+          An carousel of some food items with pagination and autoplaying
+          disabled
+        </p>
+        <div
+          class="slide"
+          role="tabpanel"
+          aria-labelledby="carousel-2-slide-1-title"
+        >
+          <div class="slide-content">
+            <div class="slide-caption">
+              <h3 id="carousel-2-slide-1-title">Red Curry</h3>
+              <p>
+                Clicked by
+                <a
+                  href="https://unsplash.com/photos/flat-lay-photography-of-vegetable-soup-on-white-ceramic-cup-XoByiBymX20"
+                  >Emy</a
+                >
+              </p>
+            </div>
+
+            <img
+              src="https://source.unsplash.com/XoByiBymX20/1600x700"
+              alt="Red Curry"
+              width="800"
+              height="350"
+            />
+          </div>
+        </div>
+
+        <div
+          class="slide"
+          role="tabpanel"
+          aria-labelledby="carousel-2-slide-2-title"
+        >
+          <div class="slide-content">
+            <div class="slide-caption">
+              <h3 id="carousel-2-slide-2-title">Steamed dumplings</h3>
+              <p>
+                Clicked by
+                <a
+                  href="https://unsplash.com/photos/three-white-dimsum-on-brown-bowl-D-vDQMTfAAU"
+                  >Charles Deluvio</a
+                >
+              </p>
+            </div>
+            <img
+              src="https://source.unsplash.com/D-vDQMTfAAU/1600x700"
+              alt="Steamed dumplings"
+              width="800"
+              height="350"
+            />
+          </div>
+        </div>
+
+        <div
+          class="slide"
+          role="tabpanel"
+          aria-labelledby="carousel-2-slide-3-title"
+        >
+          <div class="slide-content">
+            <div class="slide-caption">
+              <h3 id="carousel-2-slide-3-title">Salmon, veggies, and quinoa</h3>
+              <p>
+                Clicked by
+                <a
+                  href="https://unsplash.com/photos/broccoli-with-meat-on-plate-mmnKI8kMxpc"
+                  >Ella Olsson</a
+                >
+              </p>
+            </div>
+
+            <img
+              src="https://source.unsplash.com/mmnKI8kMxpc/1600x700"
+              alt="Salmon, veggies, and quinoa"
+              width="800"
+              height="350"
+            />
+          </div>
+        </div>
+      </div>
+
+
   </div>
     
   <div class="section">
@@ -135,11 +225,6 @@
           <p>Premium</p>
           <p>Tagesausflug</p>
       </div>
-      <div class="ribbon" style="background-color:#b4e1b3;">
-        <img style="width: 67px; height: 67px; padding: 16px 0;" src="Kickit-logo.png">
-        <p>Gute Kondition</p>
-        <p>erforderlich</p>
-      </div> 
   </div>
 
 
@@ -174,12 +259,12 @@
       const carousel2 = JSCarousel({
         carouselSelector: "#carousel-2",
         slideSelector: ".slide",
-        enablePagination: true,
-        autoplayInterval: 8000,
+        enablePagination: false,
+        enableAutoplay: false,
       });
 
       carousel2.create();
-
+      
   </script>
 
 </body>
