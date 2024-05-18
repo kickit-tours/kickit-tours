@@ -164,6 +164,17 @@ const JSCarousel = ({
   const adjustSlidePosition = () => {
     slides.forEach((slide, i) => {
       slide.style.transform = `translateX(${100 * (i - currentSlideIndex)}%)`;
+
+      const transform = window.getComputedStyle(slides[currentSlideIndex]).getPropertyValue('transform');    
+      // Extract translateX value from the transform property
+      let translateX = 0;
+      if (transform && transform !== 'none') {
+        const matrix = new DOMMatrix(transform);
+        translateX = matrix.m41; // m41 is the X translation value
+      }
+      
+      console.log('TranslateX:', translateX, i);
+
     });
   };
 
@@ -200,9 +211,7 @@ const JSCarousel = ({
   const moveSlide = (direction) => {
     var newSlideIndex = currentSlideIndex;
 
-    console.log("1. x", window.getComputedStyle(slides[currentSlideIndex]).getPropertyValue('x'));
     slides[currentSlideIndex].style.transform = `translateX(${(slides.length) * 100}%)`;
-    console.log("2. x", window.getComputedStyle(slides[currentSlideIndex]).getPropertyValue('x'));
 
     if (direction === "next") {
       newSlideIndex = (currentSlideIndex + 1) % slides.length

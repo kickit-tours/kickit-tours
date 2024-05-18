@@ -20,10 +20,10 @@ var rate = 1.0;
 // Set the video source based on the platform
 if (isSafariOniOS()) {
     video.src = mobileVideo; // Use mobile video for mobile devices and Safari on iOS
-    rate = 1.4;
+    rate = 1.2;
 } else {
     video.src = desktopVideo; // Use desktop video for other platforms
-    rate = 1.2;
+    rate = 1.1;
 }
 
 video.addEventListener('loadeddata', () => {
