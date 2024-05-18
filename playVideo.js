@@ -22,23 +22,16 @@ if (isSafariOniOS()) {
     video.src = desktopVideo; // Use desktop video for other platforms
 }
 
-document.addEventListener('DOMContentLoaded', (event) => {
-    const video = document.getElementById('video');
-  
-    // Ensure video is loaded
-    video.addEventListener('loadeddata', () => {
-      console.log('Video loaded and ready to play');
-    });
-  
-    function changePlaybackRate(rate) {
-      if (video.readyState >= 2) { // Ensure video is ready
-        video.playbackRate = 3.0;
-        console.log(`Playback rate set to ${rate}`);
-      } else {
-        console.log('Video not ready');
-      }
+video.addEventListener('loadeddata', () => {
+    console.log('Video loaded and ready to play');
+    if (video.readyState >= 2) { // Ensure video is ready
+    video.playbackRate = 3.0;
+    console.log(`Playback rate set to ${rate}`);
+    } else {
+    console.log('Video not ready');
     }
 });
+
 
 // Play the video
 video.play();
