@@ -21,7 +21,7 @@ const JSCarousel = ({
   carouselSelector,
   slideSelector,
   enablePagination = true,
-  enableAutoplay = false,
+  enableAutoplay = true,
   autoplayInterval = 4000,
 }) => {
   /*
@@ -198,10 +198,19 @@ const JSCarousel = ({
 
   // Move slide left and right based on direction provided.
   const moveSlide = (direction) => {
-    const newSlideIndex =
-      direction === "next"
-        ? (currentSlideIndex + 1) % slides.length
-        : (currentSlideIndex - 1 + slides.length) % slides.length;
+    var newSlideIndex = currentSlideIndex;
+
+    if (direction === "next") {
+      newSlideIndex = (currentSlideIndex + 1) % slides.length
+    } else {
+      newSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+    }
+
+//    const newSlideIndex =
+//      direction === "next"
+//        ? (currentSlideIndex + 1) % slides.length
+//        : (currentSlideIndex - 1 + slides.length) % slides.length;
+
     currentSlideIndex = newSlideIndex;
     updateCarouselState();
   };
