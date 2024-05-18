@@ -198,9 +198,8 @@ const JSCarousel = ({
   // Move slide left and right based on direction provided.
   const moveSlide = (direction) => {
     if (direction === "next") {
-      slides[0].style.transformDuration = '0s';
-      slides[0].style.transform = `translateX(${100 * (slides.length)}%)`;
-      slides[0].style.transformDuration = '0.5s';
+      console.log("Next", slides.length * 100);
+      slides[0].style.left = `${slides.length * 100}%`;
     }
 
     const newSlideIndex =
