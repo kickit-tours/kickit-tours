@@ -219,8 +219,29 @@
   <script src="roundRect.js"></script>
 
   <script type="text/javascript">
-    console.log("screen widht:", screen.width);
     roundRect("rect1",0, 0, 70, 70, 12, -15, -30,  -20);
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+        console.log("Hello");
+        window.scrollTo(0, 0);
+
+        const headerElement = document.getElementById('main-header');
+        if (headerElement) {
+            headerElement.focus();
+        }
+
+        // Add smooth scrolling to anchor links
+        const navLink = document.querySelector('.nav-link');
+        navLink.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default anchor click behavior
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+      });
+
   </script>
 
   <script src="carousel.js"></script>
@@ -242,26 +263,6 @@
 
       carousel2.create();
 
-      document.addEventListener('DOMContentLoaded', (event) => {
-        console.log("Hello");
-        window.scrollTo(0, 0);
-
-        const headerElement = document.getElementById('main-header');
-        if (headerElement) {
-            headerElement.focus();
-        }
-
-        // Add smooth scrolling to anchor links
-        const navLink = document.querySelector('.nav-link');
-        navLink.addEventListener('click', function(e) {
-            e.preventDefault(); // Prevent default anchor click behavior
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-      });
 
   </script>
 
