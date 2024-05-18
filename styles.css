@@ -182,7 +182,7 @@ li.b::marker {
 
 .ribbon {
   width: 160px;
-  height: 130px;
+  height: 110px;
   margin: 0.5em;
   padding: 1em;
   display: flex;
@@ -261,4 +261,7 @@ li.b::marker {
     line-height: 1.2;
   }
   
+  .ribbon {
+    font-weight: 300;
+  }
 }
