@@ -18,7 +18,7 @@ function isMobileDevice() {
 // Set the video source based on the platform
 if (isSafariOniOS()) {
     video.src = mobileVideo; // Use mobile video for mobile devices and Safari on iOS
-    video.playbackRate = 1.6;
+    video.playbackRate = 2.0;
 } else {
     video.src = desktopVideo; // Use desktop video for other platforms
 }
