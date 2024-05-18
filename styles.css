@@ -192,6 +192,7 @@ li.b::marker {
   text-align: center; /* Center text content */
   border-bottom-left-radius: 2em;
   border-bottom-right-radius: 2em;
+  color: #536B52;
 }
 
 
