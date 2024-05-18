@@ -161,7 +161,11 @@ li.a {
 }
 
 li.b {
-  list-style: none inside;
+  list-style: disc inside;
+}
+
+li.b::marker {
+  color: white;
 }
 
 .section {

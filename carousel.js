@@ -112,7 +112,12 @@ const JSCarousel = ({
     slides.forEach((slide, index) => {
       carouselInner.appendChild(slide);
       slide.style.transform = `translateX(${index * 100}%)`;
-      
+
+      let computedStyle = window.getComputedStyle(slide);
+      let computedLeftValue = computedStyle.getPropertyValue('left');
+      let numericLeftValue = parseFloat(computedLeftValue);
+      console.log("Current X position:", numericLeftValue);
+
       if (enablePagination) {
         const paginationBtn = addElement(
           "btn",
