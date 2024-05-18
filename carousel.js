@@ -200,7 +200,8 @@ const JSCarousel = ({
   const moveSlide = (direction) => {
     if (direction === "next") {
 //      console.log("Next");
-        slides[0].style.left = `${(1) * 50}%`;
+        slides[0].style.left = `${(1) * 100}%`;
+        slides[1].style.top = '5%';
     }
 
     const newSlideIndex =
