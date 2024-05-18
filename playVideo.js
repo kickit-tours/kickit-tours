@@ -15,20 +15,23 @@ function isMobileDevice() {
     return /Mobi/.test(navigator.userAgent);
 }
 
+var rate = 1.0;
+
 // Set the video source based on the platform
 if (isSafariOniOS()) {
     video.src = mobileVideo; // Use mobile video for mobile devices and Safari on iOS
+    rate = 1.4;
 } else {
     video.src = desktopVideo; // Use desktop video for other platforms
+    rate = 1.2;
 }
 
 video.addEventListener('loadeddata', () => {
     console.log('Video loaded and ready to play');
     if (video.readyState >= 2) { // Ensure video is ready
-    video.playbackRate = 1.4;
-    console.log(`Playback rate set to ${rate}`);
+    video.playbackRate = rate;
     } else {
-    console.log('Video not ready');
+        console.log('Video not ready');
     }
 });
 
