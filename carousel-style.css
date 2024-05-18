@@ -67,7 +67,7 @@ h4 {
 .demo-title {
   color: #fff;
   text-align: center;
-  margin: 1.5em;
+  padding-top: 2em;
 }
 
 .carousel + .carousel {
