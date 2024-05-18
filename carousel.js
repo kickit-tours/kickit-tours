@@ -109,18 +109,9 @@ const JSCarousel = ({
     * Move slides from the carousel element to the carousel inner
     * container to facilitate alignment.
     */
-  slides.forEach((slide, index) => {
+  slides.forEach((slide, i) => {
     carouselInner.appendChild(slide);
-    slide.style.transform = `translateX(${index * 100}%)`;
-
-    const transform = window.getComputedStyle(slide).getPropertyValue('transform');    
-    // Extract translateX value from the transform property
-    let translateX = 0;
-    if (transform && transform !== 'none') {
-      const matrix = new DOMMatrix(transform);
-      translateX = matrix.m41; // m41 is the X translation value
-    }
-    console.log('TranslateX:', translateX, i, 100 * (i - currentSlideIndex));
+    slide.style.transform = `translateX(${i * 100}%)`;
 
     if (enablePagination) {
       const paginationBtn = addElement(
@@ -144,6 +135,13 @@ const JSCarousel = ({
       });
     }
   });
+
+  // Get the first element
+  let firstElement = slides[0];
+
+  // Append the first element to the end of the array
+  slides.push(firstElement);
+
 
     // Create and append previous button.
     prevBtn = addElement(
