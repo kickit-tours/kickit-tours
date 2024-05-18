@@ -172,8 +172,7 @@ const JSCarousel = ({
         const matrix = new DOMMatrix(transform);
         translateX = matrix.m41; // m41 is the X translation value
       }
-      
-      console.log('TranslateX:', translateX, i);
+      console.log('TranslateX:', translateX, i, 100 * (i - currentSlideIndex));
 
     });
   };
