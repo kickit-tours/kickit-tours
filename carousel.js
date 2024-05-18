@@ -112,6 +112,16 @@ const JSCarousel = ({
   slides.forEach((slide, index) => {
     carouselInner.appendChild(slide);
     slide.style.transform = `translateX(${index * 100}%)`;
+
+    const transform = window.getComputedStyle(slide).getPropertyValue('transform');    
+    // Extract translateX value from the transform property
+    let translateX = 0;
+    if (transform && transform !== 'none') {
+      const matrix = new DOMMatrix(transform);
+      translateX = matrix.m41; // m41 is the X translation value
+    }
+    console.log('TranslateX:', translateX, i, 100 * (i - currentSlideIndex));
+
     if (enablePagination) {
       const paginationBtn = addElement(
         "btn",
@@ -164,16 +174,6 @@ const JSCarousel = ({
   const adjustSlidePosition = () => {
     slides.forEach((slide, i) => {
       slide.style.transform = `translateX(${100 * (i - currentSlideIndex)}%)`;
-
-      const transform = window.getComputedStyle(slides[currentSlideIndex]).getPropertyValue('transform');    
-      // Extract translateX value from the transform property
-      let translateX = 0;
-      if (transform && transform !== 'none') {
-        const matrix = new DOMMatrix(transform);
-        translateX = matrix.m41; // m41 is the X translation value
-      }
-      console.log('TranslateX:', translateX, i, 100 * (i - currentSlideIndex));
-
     });
   };
 
