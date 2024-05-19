@@ -160,9 +160,15 @@ a {
 }
 
 .ulist {
-  width: 75%;
+  width: 60%;
   padding: 2em 0 2em;
-  margin: 0 auto; /* This centers the div horizontally */
+  margin: 0 auto;
+}
+
+.ulist2 {
+  width: 80%;
+  padding: 2em 0 0em;
+  margin: 0 auto; 
 }
 
 li.a {
