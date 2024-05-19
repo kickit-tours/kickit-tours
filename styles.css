@@ -172,12 +172,20 @@ li.a::marker {
   color: #20CE88;
 }
 
+
 li.b {
   list-style: disc inside;
 }
 
 li.b::marker {
   color: white;
+}
+
+li.c {
+  list-style: disc inside;
+}
+li.c::marker {
+  color: #8A4292;
 }
 
 .section {
