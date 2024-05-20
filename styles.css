@@ -213,7 +213,7 @@ li.c::marker {
   text-align: center; /* Center text content */
   border-bottom-left-radius: 2em;
   border-bottom-right-radius: 2em;
-  color: #536B52;
+  color: #fff;
 }
 
 
@@ -231,6 +231,7 @@ li.c::marker {
   .nav-logo-text {
     font-size: 22px; 
     letter-spacing: 4px;
+    color: #423F32;
   }
   
   .nav-menu {
