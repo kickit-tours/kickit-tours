@@ -226,7 +226,7 @@ li.c::marker {
   color: #fff;
   background-color: #89D1A6;
   border-radius: 1.5em;
-  padding: 1em; /* Added padding for better spacing */
+  padding-bottom: 1em; 
 }
 
 .icon-container {
