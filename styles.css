@@ -222,7 +222,7 @@ li.c::marker {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  margin: 0 auto;
+  margin: 0 auto 2em;
   color: #fff;
   background-color: #89D1A6;
   border-radius: 1.5em;
@@ -260,6 +260,7 @@ li.c::marker {
   font-size: 1.1em;
   font-weight: 500;
   margin-top: 12px;
+  line-height: 1;
 }
 
 .profile-title {
@@ -267,6 +268,7 @@ li.c::marker {
   font-size: 1.0em;
   font-weight: 400;
   margin-top: 6px;
+  line-height: 1;
 }
 
 @media only screen and (max-width: 768px) {
