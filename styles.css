@@ -238,6 +238,11 @@ li.c::marker {
   font-size: xx-large;
 }
 
+.icon-container a {
+  color: #fff; /* Set the color to white */
+  text-decoration: none;
+}
+
 .profile-container {
   display: flex;
   flex-direction: column;
