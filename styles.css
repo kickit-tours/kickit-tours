@@ -220,7 +220,7 @@ li.c::marker {
   width: 90%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   margin: 0 auto;
   color: #fff;
@@ -233,6 +233,8 @@ li.c::marker {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 60px; /* Define a width for the icon container */
+  height: 60px; /* Define a height for the icon container */
   font-size: xx-large;
 }
 
@@ -246,7 +248,7 @@ li.c::marker {
 .profile-image {
   width: 100px;
   height: auto;
-  margin: 1.5em 0 0.5em;
+  margin: 0.5em 0 0.5em;
   border-top-left-radius: 1.5em;
 }
 
