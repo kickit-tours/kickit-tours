@@ -241,6 +241,7 @@ li.c::marker {
   font-family: 'Montserrat', sans-serif;
   font-size: 0.8em;
   font-weight: 400;
+  margin-bottom: 1em;
 }
 
 @media only screen and (max-width: 768px) {
