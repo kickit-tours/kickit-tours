@@ -216,6 +216,32 @@ li.c::marker {
   color: #fff;
 }
 
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.profile-image {
+  width: 100px;
+  height: auto;
+  margin: 1.5em 0 0.5em;
+  border-top-left-radius: 1.5em;
+}
+
+.profile-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+.profile-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8em;
+  font-weight: 400;
+}
 
 @media only screen and (max-width: 768px) {
 
