@@ -246,10 +246,8 @@ li.c::marker {
 }
 
 .profile-image {
-  width: 100px;
+  width: 120px;
   height: auto;
-  margin: 0.5em 0 0.5em;
-  border-top-left-radius: 1.5em;
 }
 
 .profile-name {
@@ -261,7 +259,7 @@ li.c::marker {
 
 .profile-title {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.8em;
+  font-size: 1.0em;
   font-weight: 400;
   margin-top: 6px;
 }
