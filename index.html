@@ -317,8 +317,10 @@
                 console.log("click", targetId);
 
                 if (targetElement) {
+                    const margin = 20; // Adjust the margin value as needed
+                    const targetOffset = targetElement.offsetTop - margin;
                     window.scrollTo({
-                        top: targetElement.offsetTop,
+                        top: targetOffset,
                         behavior: 'smooth'
                     });
                 }
