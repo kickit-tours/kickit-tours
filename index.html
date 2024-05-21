@@ -294,10 +294,11 @@
   <script src="playVideo.js"></script>
   <script src="menu.js"></script>
   <script src="roundRect.js"></script>
-
   <script type="text/javascript">
     roundRect("rect1",0, 0, 70, 70, 12, -15, -30,  -20);
+  </script>
 
+  <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function() {
         const links = document.querySelectorAll('.nav-link');
 
@@ -306,6 +307,8 @@
                 event.preventDefault();
                 const targetId = this.getAttribute('href').substring(1);
                 const targetElement = document.getElementById(targetId);
+
+                console.log("click", targetId);
 
                 if (targetElement) {
                     window.scrollTo({
