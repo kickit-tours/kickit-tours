@@ -236,6 +236,7 @@ li.c::marker {
   width: 60px; /* Define a width for the icon container */
   height: 60px; /* Define a height for the icon container */
   font-size: xx-large;
+  overflow: hidden;
 }
 
 .icon-container a {
