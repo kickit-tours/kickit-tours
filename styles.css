@@ -236,7 +236,6 @@ li.c::marker {
   width: 60px; /* Define a width for the icon container */
   height: 60px; /* Define a height for the icon container */
   font-size: xx-large;
-  overflow: hidden;
 }
 
 .icon-container a {
@@ -254,6 +253,7 @@ li.c::marker {
 .profile-image {
   width: 120px;
   height: auto;
+  overflow: hidden;
 }
 
 .profile-name {
