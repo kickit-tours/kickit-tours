@@ -267,11 +267,51 @@ const JSCarousel = ({
     event.preventDefault();
   };
 
+
+  const setupTouchHandlers = (touchImage) => {
+    let startX, startY, moveX, moveY;
+
+    const handleTouchStart = (e) => {
+      const touch = e.touches[0];
+      startX = touch.clientX;
+      startY = touch.clientY;
+      console.log(`Touch started on ${touchImage.alt} at (${startX}, ${startY})`);
+    };
+
+    const handleTouchMove = (e) => {
+      const touch = e.touches[0];
+      moveX = touch.clientX;
+      moveY = touch.clientY;
+      console.log(`Touch moved on ${touchImage.alt} to (${moveX}, ${moveY})`);
+      // Prevent default behavior to avoid scrolling
+      e.preventDefault();
+    };
+
+    const handleTouchEnd = (e) => {
+      console.log(`Touch ended on ${touchImage.alt} at (${moveX}, ${moveY})`);
+      // Determine drag distance
+      const distanceX = moveX - startX;
+      const distanceY = moveY - startY;
+      console.log(`Dragged distance on ${touchImage.alt}: (${distanceX}, ${distanceY})`);
+    };
+
+    const handleTouchCancel = (e) => {
+      console.log(`Touch cancelled on ${touchImage.alt}`);
+    };
+
+    touchImage.addEventListener('touchstart', handleTouchStart);
+    touchImage.addEventListener('touchmove', handleTouchMove);
+    touchImage.addEventListener('touchend', handleTouchEnd);
+    touchImage.addEventListener('touchcancel', handleTouchCancel);
+  };
+
+
   // Attach event listeners to relevant elements.
   const attachEventListeners = () => {
     prevBtn.addEventListener("click", handlePrevBtnClick);
     nextBtn.addEventListener("click", handleNextBtnClick);
     carousel.addEventListener("keydown", handleKeyboardNav);
+    carousel.querySelectorAll('.carousel-inner img').forEach(setupTouchHandlers);
 
     if (enableAutoplay && autoplayInterval !== null) {
       carousel.addEventListener("mouseenter", handleMouseEnter);

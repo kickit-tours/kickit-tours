@@ -297,43 +297,8 @@
       <p style="font-size: 0.9em; font-weight: 500; text-align: center;">© KiCKiT 2024</p>
     </div>
 </div>
-  
-<script>
-  const touchAreas = document.querySelectorAll('.slide-content img');
-  let startX, startY, moveX, moveY;
 
-  touchAreas.forEach((touchImage) => {
-    touchImage.addEventListener('touchstart', function(e) {
-      const touch = e.touches[0];
-      startX = touch.clientX;
-      startY = touch.clientY;
-      console.log(`Touch started on ${touchImage.alt} at (${startX}, ${startY})`);
-    });
-
-    touchImage.addEventListener('touchmove', function(e) {
-      const touch = e.touches[0];
-      moveX = touch.clientX;
-      moveY = touch.clientY;
-      console.log(`Touch moved on ${touchImage.alt} to (${moveX}, ${moveY})`);
-      // Prevent default behavior to avoid scrolling
-      e.preventDefault();
-    });
-
-    touchImage.addEventListener('touchend', function(e) {
-      console.log(`Touch ended on ${touchImage.alt} at (${moveX}, ${moveY})`);
-      // Determine drag distance
-      const distanceX = moveX - startX;
-      const distanceY = moveY - startY;
-      console.log(`Dragged distance on ${touchImage.alt}: (${distanceX}, ${distanceY})`);
-    });
-
-    touchImage.addEventListener('touchcancel', function(e) {
-      console.log(`Touch cancelled on ${touchImage.alt}`);
-    });
-  });
-</script>
-
-  <script src="playVideo.js"></script>
+<script src="playVideo.js"></script>
   <script src="menu.js"></script>
   <script src="roundRect.js"></script>
   <script type="text/javascript">
