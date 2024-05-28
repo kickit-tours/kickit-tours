@@ -12,33 +12,34 @@
 
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
-    .carousel {
+   .car {
       display: flex;
+      height: 350px;
       overflow: hidden;
       scroll-behavior: smooth;
     }
 
-    .carousel-item {
+    .car-item {
       flex: 0 0 auto;
       transition: transform 0.5s;
       position: relative;
     }
 
-    .carousel-item.main {
+    .car-item.main {
       flex: 0 0 90%;
     }
 
-    .carousel-item.next {
+    .car-item.next {
       flex: 0 0 10%;
     }
 
-    .carousel-item img {
+    .car-item img {
       width: 100%;
       height: auto;
       display: block;
     }
 
-    .carousel-caption {
+    .car-caption {
       position: absolute;
       bottom: 0;
       left: 0;
@@ -283,6 +284,31 @@
       </ul>
     </div>
 
+    <div class="car-wrapper relative w-full overflow-hidden">
+      <div class="car flex">
+        <div class="car-item main">
+          <img src="Tour Dresden.jpeg" alt="Slide 1">
+          <div class="car-caption">Caption for Slide 1</div>
+        </div>
+        <div class="car-item next">
+          <img src="Tour Pirna.jpeg" alt="Slide 2">
+          <div class="car-caption">Caption for Slide 2</div>
+        </div>
+        <div class="car-item main">
+          <img src="https://via.placeholder.com/800x400?text=Slide+3" alt="Slide 3">
+          <div class="car-caption">Caption for Slide 3</div>
+        </div>
+        <div class="car-item next">
+          <img src="https://via.placeholder.com/800x400?text=Slide+4" alt="Slide 4">
+          <div class="car-caption">Caption for Slide 4</div>
+        </div>
+        <!-- Add more items as needed -->
+      </div>
+      <!-- Navigation buttons -->
+      <button id="prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2">Prev</button>
+      <button id="next" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2">Next</button>
+    </div>
+
     <section id="probefahrt">
       <a href="https://wa.me/4917696370084?text=Hallo%20ich%20bin%20NAME%20und%20interessiere%20mich%20für%20eine%20Probefahrt%20mit%20dem%20Kickbike%20am%20DATUM%20um%20UHRZEIT%20für%20eine%20Person%20oder%202%20Personen" target="_blank">
         <div style="display: flex; align-items: center; justify-content: center; padding: 6px; width: 260px; margin: 2em auto 0; color:#fff; background-color:#89D1A6; border-radius: 0.5em;">
@@ -337,37 +363,13 @@
       <p style="font-size: 0.9em; font-weight: 500; text-align: center;">© KiCKiT 2024</p>
     </div>
 
-    <div class="carousel-wrapper relative w-full overflow-hidden">
-      <div class="carousel flex">
-        <div class="carousel-item main">
-          <img src="https://via.placeholder.com/800x400?text=Slide+1" alt="Slide 1">
-          <div class="carousel-caption">Caption for Slide 1</div>
-        </div>
-        <div class="carousel-item next">
-          <img src="https://via.placeholder.com/800x400?text=Slide+2" alt="Slide 2">
-          <div class="carousel-caption">Caption for Slide 2</div>
-        </div>
-        <div class="carousel-item main">
-          <img src="https://via.placeholder.com/800x400?text=Slide+3" alt="Slide 3">
-          <div class="carousel-caption">Caption for Slide 3</div>
-        </div>
-        <div class="carousel-item next">
-          <img src="https://via.placeholder.com/800x400?text=Slide+4" alt="Slide 4">
-          <div class="carousel-caption">Caption for Slide 4</div>
-        </div>
-        <!-- Add more items as needed -->
-      </div>
-      <!-- Navigation buttons -->
-      <button id="prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2">Prev</button>
-      <button id="next" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2">Next</button>
-    </div>
 
 </div>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    const carousel = document.querySelector('.carousel');
-    const items = document.querySelectorAll('.carousel-item');
+    const carousel = document.querySelector('.car');
+    const items = document.querySelectorAll('.car-item');
     let currentIndex = 0;
 
     function updateCarousel() {
