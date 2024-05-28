@@ -158,6 +158,8 @@ const JSCarousel = ({
     );
     carouselInner.appendChild(nextBtn);
 
+    carouselInner.forEach(setupTouchHandlers);
+
   };
 
   // Adjust slide positions according to the currently selected slide.
@@ -311,7 +313,6 @@ const JSCarousel = ({
     prevBtn.addEventListener("click", handlePrevBtnClick);
     nextBtn.addEventListener("click", handleNextBtnClick);
     carousel.addEventListener("keydown", handleKeyboardNav);
-    carousel.querySelectorAll('.carousel-inner img').forEach(setupTouchHandlers);
 
     if (enableAutoplay && autoplayInterval !== null) {
       carousel.addEventListener("mouseenter", handleMouseEnter);
