@@ -254,7 +254,7 @@ li.c::marker {
 
 .profile-image {
   width: 120px;
-  height: auto;
+  height: 120px;
   overflow: hidden;
 }
 
