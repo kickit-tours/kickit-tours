@@ -157,8 +157,9 @@ const JSCarousel = ({
       ""
     );
     carouselInner.appendChild(nextBtn);
+    setupTouchHandlers(carouselInner);
 
-    carouselInner.forEach(setupTouchHandlers);
+//    carouselInner.forEach(setupTouchHandlers);
 
   };
 
