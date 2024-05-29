@@ -5,7 +5,7 @@
     }
 
     .car-item {
-      flex: 0 0 calc(90% - 1em);
+      flex: 0 0 calc(50% - 1em);
       transition: transform 0.5s cubic-bezier(0.42, 0, 0.58, 1);
       position: relative;
       width: 100%;
@@ -13,12 +13,12 @@
     }
 
     .car-item.main {
-      height: 260px; 
+      height: 350px; 
     }
 
     .car-item.next {
-      height: 260px; 
-      transform: translateX(-10%);
+      height: 350px; 
+      transform: translateX(-50%);
     }
 
     .car-item img {
@@ -26,6 +26,7 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      border-radius: 1em;
     }
 
     .car-caption {
@@ -37,4 +38,17 @@
       color: #fff;
       padding: 1rem;
       text-align: center;
+      border-bottom-left-radius: 1em;
+      border-bottom-right-radius: 1em;
+    }
+
+    @media only screen and (max-width: 768px) {
+     
+        .car-item {
+            flex: 0 0 calc(90% - 1em);
+        }
+        
+        .car-item.next {
+            transform: translateX(-10%);
+        }      
     }
