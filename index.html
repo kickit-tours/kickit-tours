@@ -337,7 +337,7 @@
       function updateCar() {
         const offset = currentIndex * -100; // Adjust for full width items
         items.forEach(item => {
-          item.style.transform = `translateX(${offset}%)`;
+          item.style.transform = `calc(translateX(${offset}%) + 1em)`;
         });
       }
 
