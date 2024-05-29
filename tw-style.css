@@ -4,7 +4,7 @@
       scroll-behavior: smooth;
       touch-action: pan-y; /* Prevent vertical scroll on swipe */
     }
-
+    
     .car-item {
       flex: 0 0 calc(50% - 1em);
       transition: transform 0.5s cubic-bezier(0.42, 0, 0.58, 1);

@@ -348,25 +348,29 @@
         car.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
       }
 
+      function touchStart(index) {
+        return function(event) {
+          currentIndex = index;
+          startX = event.touches[0].clientX;
+          isDragging = true;
 
-      function touchStart(event) {
-        startX = event.touches[0].clientX;
-        isDragging = true;
-        car.classList.add('grabbing');
+          animationID = requestAnimationFrame(animation);
+          car.classList.add('grabbing');
+          console.log("start", startX)
+        }
       }
 
       function touchMove(event) {
         if (isDragging) {
           const currentX = event.touches[0].clientX;
           currentTranslate = prevTranslate + currentX - startX;
-          car.style.transform = `translateX(${currentTranslate}px)`;
         }
       }
 
       function touchEnd() {
+        cancelAnimationFrame(animationID);
         isDragging = false;
         const movedBy = currentTranslate - prevTranslate;
-        const itemWidth = items[0].getBoundingClientRect().width + parseFloat(getComputedStyle(items[0]).marginRight);
 
         if (movedBy < -50 && currentIndex < items.length - 1) {
           currentIndex += 1;
@@ -381,15 +385,22 @@
       }
 
       function setPositionByIndex() {
-        const itemWidth = items[0].getBoundingClientRect().width + parseFloat(getComputedStyle(items[0]).marginRight);
-        currentTranslate = currentIndex * -itemWidth;
+        currentTranslate = currentIndex * -items[0].getBoundingClientRect().width;
         prevTranslate = currentTranslate;
-        car.style.transform = `translateX(${currentTranslate}px)`;
+        updateCar();
       }
 
-      car.addEventListener('touchstart', touchStart);
-      car.addEventListener('touchmove', touchMove);
-      car.addEventListener('touchend', touchEnd);
+      function animation() {
+        setPositionByIndex();
+        if (isDragging) requestAnimationFrame(animation);
+      }
+
+      items.forEach((item, index) => {
+        const touchStartHandler = touchStart(index);
+        item.addEventListener('touchstart', touchStartHandler);
+        item.addEventListener('touchmove', touchMove);
+        item.addEventListener('touchend', touchEnd);
+      });
 
       updateCar();
 
