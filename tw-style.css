@@ -9,6 +9,7 @@
       transition: transform 0.5s cubic-bezier(0.42, 0, 0.58, 1);
       position: relative;
       width: 100%;
+      padding-right: 1em;
     }
 
     .car-item.main {
@@ -17,7 +18,7 @@
 
     .car-item.next {
       height: 260px; /* Ensure the next item has the same height */
-      transform: translateX(-8%);
+      transform: translateX(-10%);
     }
 
     .car-item img {
