@@ -336,7 +336,9 @@
 
       function updateCar() {
         const offset = currentIndex * -50; // Adjust for full width items
-        car.style.transform = `translateX(${offset}%)`;
+        items.forEach(item => {
+          item.style.transform = `translateX(${offset}%)`;
+        });
       }
 
       document.getElementById('prev').addEventListener('click', () => {
