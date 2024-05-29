@@ -2,6 +2,7 @@
       display: flex;
       overflow: hidden;
       scroll-behavior: smooth;
+      touch-action: pan-y; /* Prevent vertical scroll on swipe */
     }
 
     .car-item {
@@ -10,14 +11,10 @@
       position: relative;
       width: 100%;
       margin-right: 1em;
-    }
-
-    .car-item.main {
       height: 350px; 
     }
 
     .car-item.next {
-      height: 350px; 
       transform: translateX(-50%);
     }
 

@@ -329,48 +329,80 @@
       const car = document.querySelector('.car');
       const items = document.querySelectorAll('.car-item');
       let currentIndex = 0;
-      let startX;
+      let startX = 0;
+      let isDragging = false;
       let currentTranslate = 0;
       let prevTranslate = 0;
+      let animationID;
+
+//      function updateCar() {
+//        const offset = currentIndex * -100; // Adjust for full width items
+//        const offset = (currentIndex * -100) + parseFloat(getComputedStyle(items[0]).marginRight);
+//        items.forEach(item => {
+//          item.style.transform = `translateX(${offset}%)`;
+//        });
+//      }
 
       function updateCar() {
-        const offset = currentIndex * -100; // Adjust for full width items
-//        const offset = (currentIndex * -100) + parseFloat(getComputedStyle(items[0]).marginRight);
-        items.forEach(item => {
-          item.style.transform = `translateX(${offset}%)`;
-        });
+        const itemWidth = items[0].getBoundingClientRect().width + parseFloat(getComputedStyle(items[0]).marginRight);
+        car.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
       }
 
-      function touchStart(event) {
-        startX = event.touches[0].clientX;
+      function touchStart(index) {
+        return function(event) {
+          currentIndex = index;
+          startX = event.touches[0].clientX;
+          isDragging = true;
+
+          animationID = requestAnimationFrame(animation);
+          car.classList.add('grabbing');
+        }
       }
 
       function touchMove(event) {
-        const currentX = event.touches[0].clientX;
-        currentTranslate = prevTranslate + currentX - startX;
-        car.style.transform = `translateX(${currentTranslate}px)`;
+        if (isDragging) {
+          const currentX = event.touches[0].clientX;
+          currentTranslate = prevTranslate + currentX - startX;
+        }
       }
 
       function touchEnd() {
+        cancelAnimationFrame(animationID);
+        isDragging = false;
         const movedBy = currentTranslate - prevTranslate;
 
         if (movedBy < -50 && currentIndex < items.length - 1) {
-          currentIndex++;
+          currentIndex += 1;
         }
 
         if (movedBy > 50 && currentIndex > 0) {
-          currentIndex--;
+          currentIndex -= 1;
         }
 
-        updateCar();
-        prevTranslate = -currentIndex * car.clientWidth;
+        setPositionByIndex();
+        car.classList.remove('grabbing');
       }
 
-      car.addEventListener('touchstart', touchStart);
-      car.addEventListener('touchmove', touchMove);
-      car.addEventListener('touchend', touchEnd);
+      function setPositionByIndex() {
+        currentTranslate = currentIndex * -items[0].getBoundingClientRect().width;
+        prevTranslate = currentTranslate;
+        updateCar();
+      }
+
+      function animation() {
+        setPositionByIndex();
+        if (isDragging) requestAnimationFrame(animation);
+      }
+
+      items.forEach((item, index) => {
+        const touchStartHandler = touchStart(index);
+        item.addEventListener('touchstart', touchStartHandler);
+        item.addEventListener('touchmove', touchMove);
+        item.addEventListener('touchend', touchEnd);
+      });
 
       updateCar();
+
     });
 </script>
 
