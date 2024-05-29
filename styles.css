@@ -223,11 +223,11 @@ li.c::marker {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  margin: 0 auto 2em;
+  margin: 1em auto 2em;
   color: #fff;
   background-color: #89D1A6; 
   border-radius: 1.5em;
-  padding-bottom: 1em; 
+  padding: 1em 0; 
 }
 
 .icon-container {
@@ -256,6 +256,7 @@ li.c::marker {
   width: 120px;
   height: 120px;
   overflow: hidden;
+  object-fit: cover;
 }
 
 .profile-name {
