@@ -10,9 +10,6 @@
   <link rel="stylesheet" href="carousel-style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="tw-style.css">
-
 </head>
 
 <header id="main-header" class="header" tabindex="-1"> 
@@ -323,89 +320,6 @@
 
 
 </div>
-
-<script>
-   document.addEventListener('DOMContentLoaded', function() {
-      const car = document.querySelector('.car');
-      const items = document.querySelectorAll('.car-item');
-      let currentIndex = 0;
-      let startX = 0;
-      let isDragging = false;
-      let currentTranslate = 0;
-      let prevTranslate = 0;
-      let animationID;
-
-//      function updateCar() {
-//        const offset = currentIndex * -100; // Adjust for full width items
-//        const offset = (currentIndex * -100) + parseFloat(getComputedStyle(items[0]).marginRight);
-//        items.forEach(item => {
-//          item.style.transform = `translateX(${offset}%)`;
-//        });
-//      }
-
-      function updateCar() {
-        const itemWidth = items[0].getBoundingClientRect().width + parseFloat(getComputedStyle(items[0]).marginRight);
-        car.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
-      }
-
-      function touchStart(index) {
-        return function(event) {
-          currentIndex = index;
-          startX = event.touches[0].clientX;
-          isDragging = true;
-
-          animationID = requestAnimationFrame(animation);
-          car.classList.add('grabbing');
-          console.log("start", startX)
-        }
-      }
-
-      function touchMove(event) {
-        if (isDragging) {
-          const currentX = event.touches[0].clientX;
-          currentTranslate = prevTranslate + currentX - startX;
-        }
-      }
-
-      function touchEnd() {
-        cancelAnimationFrame(animationID);
-        isDragging = false;
-        const movedBy = currentTranslate - prevTranslate;
-
-        if (movedBy < -50 && currentIndex < items.length - 1) {
-          currentIndex += 1;
-        }
-
-        if (movedBy > 50 && currentIndex > 0) {
-          currentIndex -= 1;
-        }
-
-        setPositionByIndex();
-        car.classList.remove('grabbing');
-      }
-
-      function setPositionByIndex() {
-        currentTranslate = currentIndex * -items[0].getBoundingClientRect().width;
-        prevTranslate = currentTranslate;
-        updateCar();
-      }
-
-      function animation() {
-        setPositionByIndex();
-        if (isDragging) requestAnimationFrame(animation);
-      }
-
-      items.forEach((item, index) => {
-        const touchStartHandler = touchStart(index);
-        item.addEventListener('touchstart', touchStartHandler);
-        item.addEventListener('touchmove', touchMove);
-        item.addEventListener('touchend', touchEnd);
-      });
-
-      updateCar();
-
-    });
-</script>
 
 <script src="playVideo.js"></script>
   <script src="menu.js"></script>
