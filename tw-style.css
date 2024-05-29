@@ -17,7 +17,7 @@
 
     .car-item.next {
       height: 260px; /* Ensure the next item has the same height */
-      transform: translateX(-10%);
+      transform: translateX(-8%);
     }
 
     .car-item img {
