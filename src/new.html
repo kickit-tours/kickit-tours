@@ -8,13 +8,27 @@
   <style>
     .menu-hidden {
       max-height: 0;
+      opacity: 0;
       overflow: hidden;
-      transition: max-height 0.5s ease-out;
+      transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
     }
 
     .menu-visible {
       max-height: 20rem; /* Adjust based on the content height */
-      transition: max-height 0.5s ease-in;
+      opacity: 1;
+      transition: max-height 0.5s ease-in, opacity 0.5s ease-in;
+    }
+
+    .menu-item-hidden {
+      transform: translateX(-100%);
+      opacity: 0;
+      transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    }
+
+    .menu-item-visible {
+      transform: translateX(0);
+      opacity: 1;
+      transition: transform 0.5s ease-in, opacity 0.5s ease-in;
     }
   </style>
 </head>
@@ -53,10 +67,10 @@
     <!-- Mobile menu, show/hide based on menu state. -->
     <div class="sm:hidden menu-hidden" id="mobile-menu">
       <div class="px-2 pt-2 pb-3 space-y-1">
-        <a href="#" class="text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Home</a>
-        <a href="#" class="text-gray-900 block px-3 py-2 rounded-md text-base font-medium">About</a>
-        <a href="#" class="text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Services</a>
-        <a href="#" class="text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+        <a href="#" class="menu-item-hidden text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+        <a href="#" class="menu-item-hidden text-gray-900 block px-3 py-2 rounded-md text-base font-medium">About</a>
+        <a href="#" class="menu-item-hidden text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Services</a>
+        <a href="#" class="menu-item-hidden text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Contact</a>
       </div>
     </div>
   </nav>
@@ -65,14 +79,27 @@
     document.addEventListener('DOMContentLoaded', function() {
       const mobileMenuButton = document.getElementById('mobile-menu-button');
       const mobileMenu = document.getElementById('mobile-menu');
+      const menuItems = document.querySelectorAll('#mobile-menu .menu-item-hidden, #mobile-menu .menu-item-visible');
 
       mobileMenuButton.addEventListener('click', () => {
         if (mobileMenu.classList.contains('menu-hidden')) {
           mobileMenu.classList.remove('menu-hidden');
           mobileMenu.classList.add('menu-visible');
+          menuItems.forEach((item, index) => {
+            setTimeout(() => {
+              item.classList.remove('menu-item-hidden');
+              item.classList.add('menu-item-visible');
+            }, index * 100); // Staggered animation
+          });
         } else {
           mobileMenu.classList.remove('menu-visible');
           mobileMenu.classList.add('menu-hidden');
+          menuItems.forEach((item, index) => {
+            setTimeout(() => {
+              item.classList.remove('menu-item-visible');
+              item.classList.add('menu-item-hidden');
+            }, index * 100); // Staggered animation
+          });
         }
         mobileMenuButton.querySelectorAll('svg').forEach(svg => svg.classList.toggle('hidden'));
       });
